@@ -24,7 +24,7 @@ const ContactSection = () => {
       icon: Linkedin,
       label: "LinkedIn",
       value: "muhammad-shoaib",
-      link: "https://www.linkedin.com/in/muhammad-shoaib/"
+      link: "https://www.linkedin.com/in/muhammad-shoaib-726b0a382/"
     },
     {
       icon: Github,
