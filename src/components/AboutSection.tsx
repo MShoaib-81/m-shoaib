@@ -1,9 +1,20 @@
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import profilePhoto from "@/assets/profile-photo.png";
+
 const AboutSection = () => {
   return (
     <section id="about" className="py-24 bg-surface">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="section-heading text-center mb-16">About Me</h2>
+          
+          {/* Profile Photo */}
+          <div className="flex justify-center mb-12">
+            <Avatar className="w-48 h-48 border-4 border-primary/20 shadow-xl">
+              <AvatarImage src={profilePhoto} alt="Muhammad Shoaib" className="object-cover" />
+              <AvatarFallback className="text-4xl font-bold bg-primary/10 text-primary">MS</AvatarFallback>
+            </Avatar>
+          </div>
           
           <div className="prose prose-lg mx-auto text-surface-foreground leading-relaxed">
             <p className="text-xl mb-6">
