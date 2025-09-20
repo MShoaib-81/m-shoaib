@@ -1,4 +1,3 @@
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import profilePhoto from "@/assets/profile-photo.png";
 
 const AboutSection = () => {
@@ -8,17 +7,20 @@ const AboutSection = () => {
         <div className="max-w-6xl mx-auto">
           <h2 className="section-heading text-center mb-16">About Me</h2>
           
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-5 gap-12 items-center">
             {/* Picture Section */}
-            <div className="flex justify-center lg:justify-end">
-              <Avatar className="w-64 h-64 border-4 border-primary/20 shadow-xl">
-                <AvatarImage src={profilePhoto} alt="Muhammad Shoaib" className="object-cover" />
-                <AvatarFallback className="text-4xl font-bold bg-primary/10 text-primary">MS</AvatarFallback>
-              </Avatar>
+            <div className="lg:col-span-2 flex justify-center lg:justify-end">
+              <div className="w-64 h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl bg-gradient-to-br from-primary/5 to-secondary/5">
+                <img 
+                  src={profilePhoto} 
+                  alt="Muhammad Shoaib" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
             
             {/* Text Section */}
-            <div className="prose prose-lg text-surface-foreground leading-relaxed">
+            <div className="lg:col-span-3 prose prose-lg text-surface-foreground leading-relaxed">
               <p className="text-xl mb-6">
                 I am an AI student and researcher passionate about machine learning, deep learning, 
                 and their applications in healthcare and intelligent systems. My work focuses on 
