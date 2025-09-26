@@ -19,9 +19,9 @@ const ProjectsSection = () => {
       githubUrl: "https://github.com/MShoaib-81/sign-language-recognition"
     },
     {
-      title: "Sentiment Analysis using NLP",
-      description: "LSTM/Transformers vs classical ML.",
-      githubUrl: "https://github.com/MShoaib-81/sentiment-analysis-nlp"
+      title: "Explainable Sentiment Analysis using NLP",
+      description: "Advanced sentiment analysis with explainability features using transformers and classical ML approaches.",
+      githubUrl: "https://github.com/MShoaib-81/Explainable_Sentiment_Analysis"
     },
     {
       title: "Fake News Detection",
