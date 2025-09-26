@@ -1,39 +1,7 @@
-import { MapPin, Phone, Mail, Linkedin, Github } from "lucide-react";
+import { Mail, Linkedin, Github } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const ContactSection = () => {
-  const contactInfo = [
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "Sukkur, Sindh, Pakistan",
-      link: null
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+92 316 3813033",
-      link: "tel:+923163813033"
-    },
-    {
-      icon: Mail,
-      label: "Email",
-      value: "mshoaib54@outlook.com",
-      link: "mailto:mshoaib54@outlook.com"
-    },
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      value: "muhammad-shoaib",
-      link: "https://www.linkedin.com/in/muhammad-shoaib-726b0a382/"
-    },
-    {
-      icon: Github,
-      label: "GitHub",
-      value: "MShoaib-81",
-      link: "https://github.com/MShoaib-81"
-    }
-  ];
-
   return (
     <section id="contact" className="py-24 bg-surface">
       <div className="container mx-auto px-6">
@@ -41,54 +9,57 @@ const ContactSection = () => {
           <h2 className="section-heading text-center mb-16">Get in Touch</h2>
           
           <div className="text-center mb-12">
-            <p className="text-lg text-surface-foreground max-w-2xl mx-auto leading-relaxed">
-              I'm always interested in discussing AI/ML research opportunities, collaborations, 
-              or potential projects. Feel free to reach out through any of the channels below.
+            <p className="text-lg text-surface-foreground max-w-2xl mx-auto leading-relaxed mb-8">
+              I'm always interested in discussing new opportunities, innovative projects, and collaborative research initiatives.
+            </p>
+            <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Whether you're looking to integrate AI into your product, need a modern web application, or want to explore creative technology solutions, I'd love to hear from you.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {contactInfo.map((item, index) => {
-              const IconComponent = item.icon;
-              const isClickable = item.link !== null;
-              
-              return (
-                <div
-                  key={index}
-                  className={`
-                    bg-card border border-border rounded-lg p-6 text-center
-                    transition-all duration-300 hover:shadow-lg
-                    ${isClickable ? 'cursor-pointer hover:-translate-y-1' : 'cursor-default'}
-                  `}
-                  onClick={() => isClickable && item.link && window.open(item.link, '_blank')}
-                >
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4">
-                    <IconComponent className="w-6 h-6 text-primary" />
-                  </div>
-                  
-                  <h3 className="font-semibold text-card-foreground mb-2">
-                    {item.label}
-                  </h3>
-                  
-                  <p className={`
-                    text-muted-foreground
-                    ${isClickable ? 'hover:text-primary transition-colors animated-link' : ''}
-                  `}>
-                    {item.value}
-                  </p>
-                </div>
-              );
-            })}
+          {/* Email Section */}
+          <div className="flex items-center justify-center gap-3 mb-12">
+            <Mail className="w-5 h-5 text-primary" />
+            <a 
+              href="mailto:mshoaib54@outlook.com" 
+              className="text-lg text-primary hover:text-primary/80 transition-colors"
+            >
+              mshoaib54@outlook.com
+            </a>
           </div>
           
-          {/* Call to Action */}
-          <div className="text-center mt-12">
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-accent rounded-full">
-              <div className="w-3 h-3 bg-secondary rounded-full animate-pulse"></div>
-              <span className="text-accent-foreground font-medium">
-                Available for research collaborations and opportunities
-              </span>
+          {/* Connect With Me Section */}
+          <div className="text-center mb-8">
+            <h3 className="text-xl font-semibold text-card-foreground mb-6">Connect With Me</h3>
+            <div className="flex justify-center gap-4">
+              <Button
+                variant="outline"
+                size="lg"
+                className="flex items-center gap-2"
+                onClick={() => window.open("https://github.com/MShoaib-81", '_blank')}
+              >
+                <Github className="w-5 h-5" />
+                GitHub
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="flex items-center gap-2"
+                onClick={() => window.open("https://www.linkedin.com/in/muhammad-shoaib-726b0a382/", '_blank')}
+              >
+                <Linkedin className="w-5 h-5" />
+                LinkedIn
+              </Button>
             </div>
+          </div>
+          
+          {/* Research Collaboration Section */}
+          <div className="bg-card border border-border rounded-lg p-8 text-center">
+            <h3 className="text-xl font-semibold text-card-foreground mb-4">Research Collaboration</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Interested in academic research partnerships, open-source contributions, or discussing the latest 
+              developments in AI/ML? I'm always excited to connect with fellow researchers and innovators.
+            </p>
           </div>
         </div>
       </div>
