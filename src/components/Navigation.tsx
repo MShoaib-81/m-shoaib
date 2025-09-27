@@ -1,16 +1,20 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   const navItems = [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Projects", href: "#projects" },
-    { label: "Contact", href: "#contact" }
+    { label: "Home", href: "#home", type: "hash" },
+    { label: "About", href: "#about", type: "hash" },
+    { label: "Projects", href: "#projects", type: "hash" },
+    { label: "Blog", href: "/blog", type: "route" },
+    { label: "Contact", href: "#contact", type: "hash" }
   ];
 
   useEffect(() => {
@@ -21,6 +25,23 @@ const Navigation = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleNavClick = (item: { label: string; href: string; type: string }) => {
+    if (item.type === "route") {
+      setIsMobileMenuOpen(false);
+      return;
+    }
+    
+    if (item.type === "hash") {
+      if (!isHomePage) {
+        // If not on homepage, navigate to homepage first
+        window.location.href = "/" + item.href;
+        return;
+      }
+      // If on homepage, scroll to section
+      scrollToSection(item.href);
+    }
+  };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.querySelector(sectionId);
@@ -41,21 +62,31 @@ const Navigation = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="font-bold text-xl text-foreground">
+          <Link to="/" className="font-bold text-xl text-foreground">
             <span className="gradient-text">MS</span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => scrollToSection(item.href)}
-                className="text-foreground hover:text-primary transition-colors animated-link font-medium"
-              >
-                {item.label}
-              </button>
-            ))}
+            {navItems.map((item) => 
+              item.type === "route" ? (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className="text-foreground hover:text-primary transition-colors animated-link font-medium"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <button
+                  key={item.label}
+                  onClick={() => handleNavClick(item)}
+                  className="text-foreground hover:text-primary transition-colors animated-link font-medium"
+                >
+                  {item.label}
+                </button>
+              )
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -73,15 +104,26 @@ const Navigation = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-sm border-t border-border shadow-lg">
             <div className="py-4 space-y-2">
-              {navItems.map((item) => (
-                <button
-                  key={item.label}
-                  onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-6 py-3 text-foreground hover:text-primary hover:bg-accent/50 transition-colors font-medium"
-                >
-                  {item.label}
-                </button>
-              ))}
+              {navItems.map((item) => 
+                item.type === "route" ? (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block w-full text-left px-6 py-3 text-foreground hover:text-primary hover:bg-accent/50 transition-colors font-medium"
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <button
+                    key={item.label}
+                    onClick={() => handleNavClick(item)}
+                    className="block w-full text-left px-6 py-3 text-foreground hover:text-primary hover:bg-accent/50 transition-colors font-medium"
+                  >
+                    {item.label}
+                  </button>
+                )
+              )}
             </div>
           </div>
         )}
