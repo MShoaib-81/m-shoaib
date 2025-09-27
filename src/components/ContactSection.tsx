@@ -33,7 +33,7 @@ const ContactSection = () => {
         <div className="max-w-6xl mx-auto">
           <h2 className="section-heading text-center mb-16">Get in Touch</h2>
           
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-[2fr_3fr] gap-12">
             {/* Left Side - Send Message Form */}
             <div className="bg-card border border-border rounded-lg p-8">
               <h3 className="text-2xl font-semibold text-card-foreground mb-6">Send a Message</h3>
