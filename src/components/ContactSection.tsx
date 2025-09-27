@@ -22,8 +22,8 @@ const ContactSection = () => {
   const handleSendMessage = () => {
     const { name, email, message } = formData;
     const subject = `Message from ${name} via Portfolio`;
-    const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
-    const mailtoLink = `mailto:mshoaib54@outlook.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+    const mailtoLink = `mailto:mshoaib54@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
   };
 
