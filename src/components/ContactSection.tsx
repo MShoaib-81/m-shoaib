@@ -3,6 +3,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
+import { z } from "zod";
+
+const contactSchema = z.object({
+  name: z.string().trim().nonempty({ message: "Name cannot be empty" }).max(100, { message: "Name must be less than 100 characters" }),
+  email: z.string().trim().email({ message: "Invalid email address" }).max(255, { message: "Email must be less than 255 characters" }),
+  message: z.string().trim().nonempty({ message: "Message cannot be empty" }).max(1000, { message: "Message must be less than 1000 characters" }),
+});
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +18,8 @@ const ContactSection = () => {
     email: '',
     message: ''
   });
+
+  const { toast } = useToast();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -20,11 +30,27 @@ const ContactSection = () => {
   };
 
   const handleSendMessage = () => {
-    const { name, email, message } = formData;
+    const parsed = contactSchema.safeParse({
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      message: formData.message.trim(),
+    });
+
+    if (!parsed.success) {
+      const firstError = parsed.error.errors[0]?.message ?? "Please check your inputs.";
+      toast({ variant: "destructive", title: "Invalid form data", description: firstError });
+      return;
+    }
+
+    const { name, email, message } = parsed.data;
     const subject = `Message from ${name} via Portfolio`;
     const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
     const mailtoLink = `mailto:mshoaib54@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoLink;
+
+    const opened = window.open(mailtoLink, "_blank");
+    if (!opened) {
+      window.location.href = mailtoLink;
+    }
   };
 
   return (
@@ -75,7 +101,7 @@ const ContactSection = () => {
                   onClick={handleSendMessage}
                   className="w-full"
                   size="lg"
-                  disabled={!formData.name || !formData.email || !formData.message}
+                  disabled={!formData.name.trim() || !formData.email.trim() || !formData.message.trim()}
                 >
                   <Send className="w-4 h-4 mr-2" />
                   Send Message
