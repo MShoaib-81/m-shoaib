@@ -123,6 +123,21 @@
     box-shadow: 0 0 30px hsla(263, 90%, 65%, 0.2);
   }
 
+  /* Download Button */
+  .btn-download {
+    @apply relative bg-transparent border border-secondary/30 text-secondary hover:border-secondary hover:bg-secondary/10 px-8 py-4 rounded-xl font-semibold transition-all duration-300 backdrop-blur-sm;
+  }
+
+  .btn-download:hover {
+    box-shadow: 0 0 30px hsla(188, 95%, 60%, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .btn-download.downloading {
+    @apply border-secondary bg-secondary/20;
+    box-shadow: 0 0 40px hsla(188, 95%, 60%, 0.5);
+  }
+
   /* Section Heading */
   .section-heading {
     @apply text-4xl md:text-5xl font-black text-foreground mb-4;
