@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const contactSchema = z.object({
   name: z.string().trim().nonempty({ message: "Name cannot be empty" }).max(100, { message: "Name must be less than 100 characters" }),
@@ -53,119 +54,116 @@ const ContactSection = () => {
     }
   };
 
+  const contactLinks = [
+    {
+      icon: Mail,
+      label: "Email",
+      value: "mshoaib54@outlook.com",
+      href: "mailto:mshoaib54@outlook.com",
+    },
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      value: "Muhammad Shoaib",
+      href: "https://www.linkedin.com/in/muhammad-shoaib-726b0a382/",
+    },
+    {
+      icon: Github,
+      label: "GitHub",
+      value: "@MShoaib-81",
+      href: "https://github.com/MShoaib-81",
+    },
+  ];
+
   return (
-    <section id="contact" className="py-24 bg-surface">
+    <section id="contact" className="py-24 relative">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="section-heading text-center mb-16">Get in Touch</h2>
-          
-          <div className="grid lg:grid-cols-[2fr_3fr] gap-12">
-            {/* Left Side - Send Message Form */}
-            <div className="bg-card border border-border rounded-lg p-8">
-              <h3 className="text-2xl font-semibold text-card-foreground mb-6">Send a Message</h3>
-              
-              <div className="space-y-6">
-                <div>
+          <ScrollReveal>
+            <h2 className="section-heading text-center mb-4 gradient-text">Get In Touch</h2>
+            <p className="text-center text-muted-foreground mb-16 text-lg">
+              Let's collaborate on something amazing
+            </p>
+          </ScrollReveal>
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Contact Form */}
+            <ScrollReveal delay={100}>
+              <div className="glass-card-hover p-8">
+                <h3 className="text-2xl font-bold text-foreground mb-6 font-display">Send a Message</h3>
+                
+                <div className="space-y-4">
                   <Input
                     type="text"
                     name="name"
                     placeholder="Your Name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full"
+                    className="bg-background/50 border-white/10 focus:border-primary/50"
                   />
-                </div>
-                
-                <div>
+                  
                   <Input
                     type="email"
                     name="email"
                     placeholder="your.email@example.com"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full"
+                    className="bg-background/50 border-white/10 focus:border-primary/50"
                   />
-                </div>
-                
-                <div>
+                  
                   <Textarea
                     name="message"
                     placeholder="Tell me about your project ideas..."
                     value={formData.message}
                     onChange={handleInputChange}
-                    className="w-full min-h-[120px] resize-none"
+                    className="bg-background/50 border-white/10 focus:border-primary/50 min-h-[120px] resize-none"
                   />
-                </div>
-                
-                <Button
-                  onClick={handleSendMessage}
-                  className="w-full"
-                  size="lg"
-                  disabled={!formData.name.trim() || !formData.email.trim() || !formData.message.trim()}
-                >
-                  <Send className="w-4 h-4 mr-2" />
-                  Send Message
-                </Button>
-              </div>
-            </div>
-            
-            {/* Right Side - Contact Info */}
-            <div>
-              <h3 className="text-2xl font-semibold text-card-foreground mb-6">Get In Touch</h3>
-              
-              <div className="mb-8">
-                <p className="text-lg text-surface-foreground leading-relaxed mb-6">
-                  I'm always interested in discussing new opportunities, innovative projects, and collaborative research initiatives.
-                </p>
-                <p className="text-base text-muted-foreground leading-relaxed">
-                  Whether you're looking to integrate AI into your product, need a modern web application, or want to explore creative technology solutions, I'd love to hear from you.
-                </p>
-              </div>
-              
-              {/* Email Section */}
-              <div className="flex items-center gap-3 mb-8">
-                <Mail className="w-5 h-5 text-primary" />
-                <a 
-                  href="mailto:mshoaib54@outlook.com" 
-                  className="text-lg text-primary hover:text-primary/80 transition-colors"
-                >
-                  mshoaib54@outlook.com
-                </a>
-              </div>
-              
-              {/* Connect With Me Section */}
-              <div className="mb-8">
-                <h4 className="text-xl font-semibold text-card-foreground mb-4">Connect With Me</h4>
-                <div className="flex gap-4">
+                  
                   <Button
-                    variant="outline"
-                    size="lg"
-                    className="flex items-center gap-2"
-                    onClick={() => window.open("https://github.com/MShoaib-81", '_blank')}
+                    onClick={handleSendMessage}
+                    className="btn-hero w-full"
+                    disabled={!formData.name.trim() || !formData.email.trim() || !formData.message.trim()}
                   >
-                    <Github className="w-5 h-5" />
-                    GitHub
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="flex items-center gap-2"
-                    onClick={() => window.open("https://www.linkedin.com/in/muhammad-shoaib-726b0a382/", '_blank')}
-                  >
-                    <Linkedin className="w-5 h-5" />
-                    LinkedIn
+                    <Send className="w-4 h-4 mr-2" />
+                    Send Message
                   </Button>
                 </div>
               </div>
-              
-              {/* Research Collaboration Section */}
-              <div className="bg-accent/10 border border-accent/20 rounded-lg p-6">
-                <h4 className="text-lg font-semibold text-card-foreground mb-3">Research Collaboration</h4>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Interested in academic research partnerships, open-source contributions, or discussing the latest 
-                  developments in AI/ML? I'm always excited to connect with fellow researchers and innovators.
-                </p>
-              </div>
+            </ScrollReveal>
+
+            {/* Contact Links */}
+            <div className="space-y-6">
+              {contactLinks.map((link, index) => (
+                <ScrollReveal key={link.label} delay={200 + index * 100}>
+                  <a
+                    href={link.href}
+                    target={link.href.startsWith('mailto') ? undefined : '_blank'}
+                    rel="noopener noreferrer"
+                    className="glass-card-hover group p-6 flex items-center gap-4"
+                  >
+                    <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                      <link.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-foreground font-semibold">{link.label}</h3>
+                      <p className="text-muted-foreground text-sm group-hover:text-secondary transition-colors">
+                        {link.value}
+                      </p>
+                    </div>
+                  </a>
+                </ScrollReveal>
+              ))}
+
+              {/* Research Collaboration Card */}
+              <ScrollReveal delay={500}>
+                <div className="glass-card-hover p-6">
+                  <h4 className="text-lg font-semibold text-foreground mb-3 font-display">Research Collaboration</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    Interested in academic research partnerships, open-source contributions, or discussing the latest 
+                    developments in AI/ML? I'm always excited to connect with fellow researchers and innovators.
+                  </p>
+                </div>
+              </ScrollReveal>
             </div>
           </div>
         </div>

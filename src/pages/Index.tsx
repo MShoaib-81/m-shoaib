@@ -6,6 +6,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
+import ParticleBackground from "@/components/ParticleBackground";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -19,13 +20,19 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background animate-fade-in">
-      <Navigation />
-      <HeroSection />
-      <AboutSection />
-      <ProjectsSection />
-      <ContactSection />
-      <Footer />
+    <div className="min-h-screen bg-background relative">
+      {/* Particle Background */}
+      <ParticleBackground />
+      
+      {/* Content */}
+      <div className="relative z-10">
+        <Navigation />
+        <HeroSection />
+        <AboutSection />
+        <ProjectsSection />
+        <ContactSection />
+        <Footer />
+      </div>
     </div>
   );
 };
