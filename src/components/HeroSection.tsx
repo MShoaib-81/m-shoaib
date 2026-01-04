@@ -1,8 +1,28 @@
 import { Button } from "@/components/ui/button";
+import { Download } from "lucide-react";
+import { useState } from "react";
 
 const HeroSection = () => {
+  const [isDownloading, setIsDownloading] = useState(false);
+  
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleDownloadCV = () => {
+    setIsDownloading(true);
+    
+    // Simulate a brief download animation
+    setTimeout(() => {
+      const link = document.createElement('a');
+      link.href = '/Muhammad_Shoaib_CV.pdf';
+      link.download = 'Muhammad_Shoaib_CV.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      setTimeout(() => setIsDownloading(false), 1000);
+    }, 500);
   };
 
   return (
@@ -26,7 +46,7 @@ const HeroSection = () => {
             techniques for healthcare, mental health detection, and explainable AI.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               className="btn-hero animate-pulse-glow"
               onClick={() => scrollToSection('projects')}
@@ -38,6 +58,14 @@ const HeroSection = () => {
               onClick={() => scrollToSection('contact')}
             >
               Contact Me
+            </Button>
+            <Button 
+              className={`btn-download group ${isDownloading ? 'downloading' : ''}`}
+              onClick={handleDownloadCV}
+              disabled={isDownloading}
+            >
+              <Download className={`w-5 h-5 mr-2 transition-transform duration-300 ${isDownloading ? 'animate-bounce' : 'group-hover:-translate-y-1'}`} />
+              {isDownloading ? 'Downloading...' : 'Download CV'}
             </Button>
           </div>
         </div>

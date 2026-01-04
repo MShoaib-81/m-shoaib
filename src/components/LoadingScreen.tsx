@@ -35,16 +35,11 @@ const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
           </p>
         </div>
 
-        {/* Loading bar */}
-        <div className="w-64 mx-auto space-y-4" style={{ animationDelay: '0.4s' }}>
-          <div className="h-1 bg-muted rounded-full overflow-hidden animate-fade-in">
-            <div 
-              className="h-full bg-gradient-to-r from-primary to-accent transition-all duration-300 ease-out rounded-full"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-          <div className="text-sm text-muted-foreground animate-fade-in">
-            {Math.round(progress)}%
+        {/* Loading spinner */}
+        <div className="flex justify-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <div className="relative w-16 h-16">
+            <div className="absolute inset-0 rounded-full border-2 border-muted"></div>
+            <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-primary animate-spin"></div>
           </div>
         </div>
 
