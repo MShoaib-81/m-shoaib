@@ -1,18 +1,54 @@
 import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
-import { useState } from "react";
+import { Download, ArrowRight } from "lucide-react";
+import { useState, useEffect } from "react";
+import profilePhoto from "@/assets/profile-photo.png";
+
+const roles = [
+  "AI & ML Research Student",
+  "Deep Learning Enthusiast",
+  "Healthcare AI Developer",
+  "Computer Vision Researcher"
+];
 
 const HeroSection = () => {
   const [isDownloading, setIsDownloading] = useState(false);
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isTyping, setIsTyping] = useState(true);
   
+  // Typewriter effect
+  useEffect(() => {
+    const currentRole = roles[currentRoleIndex];
+    
+    if (isTyping) {
+      if (displayedText.length < currentRole.length) {
+        const timeout = setTimeout(() => {
+          setDisplayedText(currentRole.slice(0, displayedText.length + 1));
+        }, 80);
+        return () => clearTimeout(timeout);
+      } else {
+        const timeout = setTimeout(() => setIsTyping(false), 2000);
+        return () => clearTimeout(timeout);
+      }
+    } else {
+      if (displayedText.length > 0) {
+        const timeout = setTimeout(() => {
+          setDisplayedText(displayedText.slice(0, -1));
+        }, 40);
+        return () => clearTimeout(timeout);
+      } else {
+        setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+        setIsTyping(true);
+      }
+    }
+  }, [displayedText, isTyping, currentRoleIndex]);
+
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleDownloadCV = () => {
     setIsDownloading(true);
-    
-    // Simulate a brief download animation
     setTimeout(() => {
       const link = document.createElement('a');
       link.href = '/Muhammad_Shoaib_CV.pdf';
@@ -20,61 +56,105 @@ const HeroSection = () => {
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      
       setTimeout(() => setIsDownloading(false), 1000);
     }, 500);
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      {/* Content */}
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-5xl mx-auto text-center">
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black mb-8 font-display leading-none tracking-tight">
-            <span className="gradient-text text-glow">Muhammad</span>
-            <br />
-            <span className="text-foreground">Shoaib</span>
-          </h1>
-          
-          <h2 className="text-xl md:text-2xl text-secondary mb-8 font-medium font-body tracking-wide">
-            AI & ML Research Student <span className="text-muted-foreground">|</span> Developer
-          </h2>
-          
-          <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed font-body">
-            Enthusiastic AI and Machine Learning student with a strong focus on Deep Learning, 
-            medical image analysis, and intelligent systems. Interested in applying ML/DL 
-            techniques for healthcare, mental health detection, and explainable AI.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              className="btn-hero animate-pulse-glow"
-              onClick={() => scrollToSection('projects')}
-            >
-              View Projects
-            </Button>
-            <Button 
-              className="btn-hero-secondary"
-              onClick={() => scrollToSection('contact')}
-            >
-              Contact Me
-            </Button>
-            <Button 
-              className={`btn-download group ${isDownloading ? 'downloading' : ''}`}
-              onClick={handleDownloadCV}
-              disabled={isDownloading}
-            >
-              <Download className={`w-5 h-5 mr-2 transition-transform duration-300 ${isDownloading ? 'animate-bounce' : 'group-hover:-translate-y-1'}`} />
-              {isDownloading ? 'Downloading...' : 'Download CV'}
-            </Button>
+    <section id="home" className="min-h-screen flex items-center relative overflow-hidden">
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
+      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/10 rounded-full blur-[120px]" />
+      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-secondary/10 rounded-full blur-[120px]" />
+      
+      <div className="container mx-auto px-6 relative z-10 py-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Content */}
+          <div className="order-2 lg:order-1 animate-fade-in-up">
+            <div className="space-y-6">
+              {/* Status Badge */}
+              <div className="inline-flex items-center gap-2 status-badge open">
+                <span className="w-2 h-2 rounded-full bg-current animate-pulse" />
+                Open to Opportunities
+              </div>
+              
+              {/* Name */}
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-tight">
+                <span className="text-foreground">Muhammad</span>
+                <br />
+                <span className="gradient-text">Shoaib</span>
+              </h1>
+              
+              {/* Typewriter Role */}
+              <div className="h-8 flex items-center">
+                <span className="text-xl md:text-2xl text-muted-foreground font-medium">
+                  {displayedText}
+                  <span className="inline-block w-0.5 h-6 bg-primary ml-1 animate-blink" />
+                </span>
+              </div>
+              
+              {/* Bio */}
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
+                Passionate about building intelligent systems for healthcare and mental well-being. 
+                Focused on Deep Learning, medical image analysis, and explainable AI with real-world impact.
+              </p>
+              
+              {/* CTA Buttons */}
+              <div className="flex flex-wrap gap-4 pt-4">
+                <Button 
+                  className="btn-primary group"
+                  onClick={() => scrollToSection('contact')}
+                >
+                  Get In Touch
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+                <Button 
+                  className={`btn-download group ${isDownloading ? 'downloading' : ''}`}
+                  onClick={handleDownloadCV}
+                  disabled={isDownloading}
+                >
+                  <Download className={`w-4 h-4 mr-2 transition-transform ${isDownloading ? 'animate-bounce' : 'group-hover:-translate-y-0.5'}`} />
+                  {isDownloading ? 'Downloading...' : 'Download CV'}
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Visual */}
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
+            <div className="relative">
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full blur-3xl scale-110" />
+              
+              {/* Profile Image Container */}
+              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                <div className="absolute inset-0 rounded-full gradient-border" />
+                <img
+                  src={profilePhoto}
+                  alt="Muhammad Shoaib - AI/ML Research Student"
+                  className="w-full h-full object-cover rounded-full p-1"
+                />
+                
+                {/* Floating badges */}
+                <div className="absolute -right-4 top-1/4 glass-card px-4 py-2 animate-float" style={{ animationDelay: '0s' }}>
+                  <span className="text-sm font-medium">🤖 AI/ML</span>
+                </div>
+                <div className="absolute -left-4 bottom-1/3 glass-card px-4 py-2 animate-float" style={{ animationDelay: '2s' }}>
+                  <span className="text-sm font-medium">🧠 Deep Learning</span>
+                </div>
+                <div className="absolute right-0 bottom-1/4 glass-card px-4 py-2 animate-float" style={{ animationDelay: '4s' }}>
+                  <span className="text-sm font-medium">🏥 Healthcare AI</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse"></div>
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
+        <div className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center pt-2">
+          <div className="w-1 h-2 bg-muted-foreground/50 rounded-full" />
         </div>
       </div>
     </section>

@@ -12,43 +12,36 @@ const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(timer);
-          setTimeout(onLoadingComplete, 500); // Small delay before hiding
+          setTimeout(onLoadingComplete, 300);
           return 100;
         }
-        return prev + Math.random() * 15; // Random increment for realistic feel
+        return prev + 3;
       });
-    }, 100);
+    }, 40);
 
     return () => clearInterval(timer);
   }, [onLoadingComplete]);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-background">
-      <div className="text-center space-y-8">
-        {/* Animated logo/name */}
-        <div className="space-y-4">
-          <h1 className="text-4xl md:text-6xl font-bold gradient-text animate-fade-in">
-            Muhammad Shoaib
-          </h1>
-          <p className="text-muted-foreground text-lg animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            AI & ML Research Student
-          </p>
-        </div>
+    <div className="fixed inset-0 bg-background flex flex-col items-center justify-center z-50">
+      {/* Logo */}
+      <div className="mb-8 animate-fade-in">
+        <h1 className="text-4xl md:text-5xl font-bold font-display">
+          <span className="gradient-text">MS</span>
+        </h1>
+      </div>
 
-        {/* Loading spinner */}
-        <div className="flex justify-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
-          <div className="relative w-16 h-16">
-            <div className="absolute inset-0 rounded-full border-2 border-muted"></div>
-            <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-primary animate-spin"></div>
-          </div>
+      {/* Loading bar */}
+      <div className="w-48 space-y-4 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+        <div className="h-1 bg-muted rounded-full overflow-hidden">
+          <div 
+            className="h-full bg-gradient-to-r from-primary to-secondary transition-all duration-100 ease-out rounded-full"
+            style={{ width: `${progress}%` }}
+          />
         </div>
-
-        {/* Animated dots */}
-        <div className="flex justify-center space-x-2 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-          <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-          <div className="w-2 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: '0.1s' }}></div>
-          <div className="w-2 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
-        </div>
+        <p className="text-center text-sm text-muted-foreground">
+          Loading...
+        </p>
       </div>
     </div>
   );
