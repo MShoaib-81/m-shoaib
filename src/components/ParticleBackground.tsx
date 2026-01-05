@@ -24,14 +24,18 @@ const ParticleBackground = () => {
       fpsLimit: 60,
       particles: {
         color: {
-          value: ["#ffffff", "#22d3ee", "#a78bfa"],
+          value: ["#3b82f6", "#06b6d4", "#ffffff"],
         },
         links: {
-          enable: false,
+          color: "#3b82f6",
+          distance: 120,
+          enable: true,
+          opacity: 0.08,
+          width: 1,
         },
         move: {
           enable: true,
-          speed: 0.3,
+          speed: 0.4,
           direction: "none" as const,
           random: true,
           straight: false,
@@ -40,18 +44,18 @@ const ParticleBackground = () => {
           },
         },
         number: {
-          value: 100,
+          value: 50,
           density: {
             enable: true,
-            height: 800,
-            width: 800,
+            height: 1080,
+            width: 1920,
           },
         },
         opacity: {
-          value: { min: 0.1, max: 0.8 },
+          value: { min: 0.1, max: 0.4 },
           animation: {
             enable: true,
-            speed: 0.5,
+            speed: 0.4,
             sync: false,
           },
         },
@@ -59,12 +63,7 @@ const ParticleBackground = () => {
           type: "circle",
         },
         size: {
-          value: { min: 0.5, max: 2 },
-          animation: {
-            enable: true,
-            speed: 1,
-            sync: false,
-          },
+          value: { min: 1, max: 2 },
         },
       },
       detectRetina: true,
@@ -78,7 +77,7 @@ const ParticleBackground = () => {
     <Particles
       id="tsparticles"
       options={options}
-      className="absolute inset-0 -z-10"
+      className="fixed inset-0 -z-10"
     />
   );
 };

@@ -10,6 +10,7 @@ const Navigation = () => {
   const navItems = [
     { label: 'Home', href: '#home', type: 'hash' },
     { label: 'About', href: '#about', type: 'hash' },
+    { label: 'Skills', href: '#skills', type: 'hash' },
     { label: 'Projects', href: '#projects', type: 'hash' },
     { label: 'Contact', href: '#contact', type: 'hash' },
     { label: 'Blog', href: '/blog', type: 'route' }
@@ -43,16 +44,16 @@ const Navigation = () => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-background/80 backdrop-blur-xl border-b border-white/10' 
+        ? 'bg-background/90 backdrop-blur-xl border-b border-white/5' 
         : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="text-xl font-bold font-display gradient-text">
-            MS
+          <Link to="/" className="text-xl font-bold font-display">
+            <span className="gradient-text">MS</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -62,7 +63,7 @@ const Navigation = () => {
                 <button
                   key={item.label}
                   onClick={() => handleNavClick(item)}
-                  className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium text-sm"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium text-sm animated-underline"
                 >
                   {item.label}
                 </button>
@@ -70,7 +71,7 @@ const Navigation = () => {
                 <Link
                   key={item.label}
                   to={item.href}
-                  className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium text-sm"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium text-sm animated-underline"
                 >
                   {item.label}
                 </Link>
@@ -80,23 +81,23 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground p-2"
+            className="md:hidden text-foreground p-2 hover:bg-muted/50 rounded-lg transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden glass-card rounded-xl mt-2 p-4 animate-fade-in-up">
-            <div className="flex flex-col gap-4">
+          <div className="md:hidden soft-card rounded-xl mt-2 p-4 animate-fade-in">
+            <div className="flex flex-col gap-2">
               {navItems.map((item) => (
                 item.type === 'hash' ? (
                   <button
                     key={item.label}
                     onClick={() => handleNavClick(item)}
-                    className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium text-left py-2"
+                    className="text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors duration-200 font-medium text-left py-3 px-4 rounded-lg"
                   >
                     {item.label}
                   </button>
@@ -105,7 +106,7 @@ const Navigation = () => {
                     key={item.label}
                     to={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium py-2"
+                    className="text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors duration-200 font-medium py-3 px-4 rounded-lg"
                   >
                     {item.label}
                   </Link>
