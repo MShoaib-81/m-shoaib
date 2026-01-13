@@ -23,25 +23,11 @@ const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
   }, [onLoadingComplete]);
 
   return (
-    <div className="fixed inset-0 bg-background flex flex-col items-center justify-center z-50">
-      {/* Logo */}
-      <div className="mb-8 animate-fade-in">
-        <h1 className="text-4xl md:text-5xl font-bold font-display">
-          <span className="gradient-text">MS</span>
-        </h1>
-      </div>
-
-      {/* Loading bar */}
-      <div className="w-48 space-y-4 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-        <div className="h-1 bg-muted rounded-full overflow-hidden">
-          <div 
-            className="h-full bg-gradient-to-r from-primary to-secondary transition-all duration-100 ease-out rounded-full"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
-        <p className="text-center text-sm text-muted-foreground">
-          Loading...
-        </p>
+    <div className="fixed inset-0 bg-background flex items-center justify-center z-50">
+      <div className="flex items-center gap-1">
+        <div className="w-2 h-2 rounded-full bg-primary animate-bounce" style={{ animationDelay: '0ms' }} />
+        <div className="w-2 h-2 rounded-full bg-primary animate-bounce" style={{ animationDelay: '150ms' }} />
+        <div className="w-2 h-2 rounded-full bg-primary animate-bounce" style={{ animationDelay: '300ms' }} />
       </div>
     </div>
   );
