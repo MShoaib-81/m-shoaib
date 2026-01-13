@@ -71,7 +71,7 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content */}
           <div className="order-2 lg:order-1 animate-fade-in-up">
-            <div className="space-y-6">
+            <div className="space-y-4">
               {/* Status Badge */}
               <div className="inline-flex items-center gap-2 status-badge open">
                 <span className="w-2 h-2 rounded-full bg-current animate-pulse" />
@@ -79,20 +79,25 @@ const HeroSection = () => {
               </div>
               
               {/* Name */}
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-tight">
-                <span className="gradient-text">Muhammad Shoaib</span>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-tight text-foreground">
+                Muhammad Shoaib
               </h1>
+              
+              {/* Static Subtitle */}
+              <p className="text-xl md:text-2xl text-primary font-semibold">
+                Deep Learning Enthusiast
+              </p>
               
               {/* Typewriter Role */}
               <div className="h-8 flex items-center">
-                <span className="text-xl md:text-2xl text-muted-foreground font-medium">
+                <span className="text-lg md:text-xl text-muted-foreground font-medium">
                   {displayedText}
-                  <span className="inline-block w-0.5 h-6 bg-primary ml-1 animate-blink" />
+                  <span className="inline-block w-0.5 h-5 bg-primary ml-1 animate-blink" />
                 </span>
               </div>
               
               {/* Bio */}
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-xl pt-2">
                 Passionate about building intelligent systems for healthcare and mental well-being. 
                 Focused on Deep Learning, medical image analysis, and explainable AI with real-world impact.
               </p>
@@ -126,13 +131,11 @@ const HeroSection = () => {
               
               {/* Profile Image Container */}
               <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-                <div className="absolute inset-0 rounded-full gradient-border" />
                 <img
                   src={profilePhoto}
                   alt="Muhammad Shoaib - AI/ML Research Student"
-                  className="w-full h-full object-cover rounded-full p-1"
+                  className="w-full h-full object-cover rounded-full"
                 />
-                
               </div>
             </div>
           </div>
