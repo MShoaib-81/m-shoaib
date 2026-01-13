@@ -80,9 +80,7 @@ const HeroSection = () => {
               
               {/* Name */}
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-tight">
-                <span className="text-foreground">Muhammad</span>
-                <br />
-                <span className="gradient-text">Shoaib</span>
+                <span className="gradient-text">Muhammad Shoaib</span>
               </h1>
               
               {/* Typewriter Role */}
@@ -135,16 +133,6 @@ const HeroSection = () => {
                   className="w-full h-full object-cover rounded-full p-1"
                 />
                 
-                {/* Floating badges */}
-                <div className="absolute -right-4 top-1/4 glass-card px-4 py-2 animate-float" style={{ animationDelay: '0s' }}>
-                  <span className="text-sm font-medium">🤖 AI/ML</span>
-                </div>
-                <div className="absolute -left-4 bottom-1/3 glass-card px-4 py-2 animate-float" style={{ animationDelay: '2s' }}>
-                  <span className="text-sm font-medium">🧠 Deep Learning</span>
-                </div>
-                <div className="absolute right-0 bottom-1/4 glass-card px-4 py-2 animate-float" style={{ animationDelay: '4s' }}>
-                  <span className="text-sm font-medium">🏥 Healthcare AI</span>
-                </div>
               </div>
             </div>
           </div>
