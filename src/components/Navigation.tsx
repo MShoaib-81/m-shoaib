@@ -13,7 +13,7 @@ const Navigation = () => {
     { label: 'Skills', href: '#skills', type: 'hash' },
     { label: 'Projects', href: '#projects', type: 'hash' },
     { label: 'Contact', href: '#contact', type: 'hash' },
-    { label: 'Blog', href: '/blog', type: 'route' }
+    { label: 'Publications', href: '/blog', type: 'route' }
   ];
 
   useEffect(() => {
