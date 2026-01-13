@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
@@ -8,22 +7,11 @@ import ExperienceSection from "@/components/ExperienceSection";
 import ResearchSection from "@/components/ResearchSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import LoadingScreen from "@/components/LoadingScreen";
 import ParticleBackground from "@/components/ParticleBackground";
 
 const Index = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  const handleLoadingComplete = () => {
-    setIsLoading(false);
-  };
-
-  if (isLoading) {
-    return <LoadingScreen onLoadingComplete={handleLoadingComplete} />;
-  }
-
   return (
-    <div className="min-h-screen bg-background relative">
+    <div className="min-h-screen bg-background relative animate-fade-in">
       {/* Particle Background */}
       <ParticleBackground />
       
