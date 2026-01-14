@@ -1,4 +1,4 @@
-import { GraduationCap, Briefcase, Brain, Code } from "lucide-react";
+import { GraduationCap, Brain, Code, Stethoscope, Heart, MessageSquare, Eye, Lightbulb } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 import profilePhoto from "@/assets/profile-photo.png";
 
@@ -6,6 +6,15 @@ const infoCards = [
   { icon: Brain, label: "Focus", value: "Healthcare AI", color: "text-primary" },
   { icon: GraduationCap, label: "Education", value: "BS in AI", color: "text-secondary" },
   { icon: Code, label: "Experience", value: "AI Developer", color: "text-purple-400" },
+];
+
+const researchAreas = [
+  { icon: Stethoscope, title: "Medical AI & Diagnostics", color: "from-red-500/20 to-red-600/20" },
+  { icon: Brain, title: "Deep Learning", color: "from-purple-500/20 to-purple-600/20" },
+  { icon: Eye, title: "Computer Vision", color: "from-blue-500/20 to-blue-600/20" },
+  { icon: MessageSquare, title: "Natural Language Processing", color: "from-green-500/20 to-green-600/20" },
+  { icon: Heart, title: "Mental Health AI", color: "from-pink-500/20 to-pink-600/20" },
+  { icon: Lightbulb, title: "Explainable AI (XAI)", color: "from-yellow-500/20 to-yellow-600/20" },
 ];
 
 const AboutSection = () => {
@@ -82,6 +91,28 @@ const AboutSection = () => {
             </div>
           </ScrollReveal>
         </div>
+
+        {/* Research Interests */}
+        <ScrollReveal delay={300}>
+          <div className="mt-20">
+            <h3 className="text-2xl font-bold font-display text-foreground text-center mb-10">
+              Research <span className="gradient-text">Interests</span>
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+              {researchAreas.map((area, index) => (
+                <div 
+                  key={index}
+                  className="p-4 rounded-xl bg-surface/50 border border-white/5 backdrop-blur-sm text-center transition-all duration-300 hover:border-primary/20 hover:bg-surface/70 group"
+                >
+                  <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${area.color} flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                    <area.icon className="w-5 h-5 text-foreground" />
+                  </div>
+                  <p className="text-xs font-medium text-foreground leading-tight">{area.title}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
