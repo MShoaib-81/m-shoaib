@@ -46,13 +46,12 @@ const ExperienceSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <h2 className="section-heading">
+            <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground tracking-tight">
               Education & <span className="gradient-text">Experience</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
               My academic journey and professional growth in AI and machine learning
             </p>
-            <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mt-6" />
           </div>
         </ScrollReveal>
 

@@ -59,13 +59,12 @@ const ContactSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <h2 className="section-heading">
+            <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground tracking-tight">
               Get In <span className="gradient-text">Touch</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
               Let's connect and discuss new opportunities, projects, or collaborations
             </p>
-            <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mt-6" />
           </div>
         </ScrollReveal>
 
