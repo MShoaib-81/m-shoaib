@@ -27,12 +27,12 @@ const AboutSection = () => {
           <ScrollReveal delay={100}>
             <div className="space-y-6">
               {/* Profile Image */}
-              <div className="relative max-w-sm mx-auto lg:mx-0">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl blur-2xl" />
+              <div className="relative max-w-sm mx-auto lg:mx-0 group">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl blur-2xl transition-all duration-500 group-hover:from-primary/40 group-hover:to-secondary/40 group-hover:blur-3xl" />
                 <img
                   src={profilePhoto}
                   alt="Muhammad Shoaib"
-                  className="relative w-full aspect-square object-cover object-top rounded-2xl border border-white/10"
+                  className="relative w-full aspect-square object-cover object-top rounded-2xl border border-white/10 transition-all duration-500 group-hover:border-primary/30 group-hover:shadow-[0_0_30px_rgba(0,188,212,0.3)]"
                 />
               </div>
 
