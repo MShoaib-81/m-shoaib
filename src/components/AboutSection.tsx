@@ -102,12 +102,12 @@ const AboutSection = () => {
               {researchAreas.map((area, index) => (
                 <div 
                   key={index}
-                  className="p-4 rounded-xl bg-surface/50 border border-white/5 backdrop-blur-sm text-center transition-all duration-300 hover:border-primary/20 hover:bg-surface/70 group"
+                  className="p-4 rounded-xl bg-surface/50 border border-white/5 backdrop-blur-sm text-center transition-all duration-300 hover:border-primary/20 hover:bg-surface/70 hover:shadow-[0_0_20px_rgba(0,188,212,0.15)] group cursor-pointer"
                 >
-                  <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${area.color} flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300`}>
-                    <area.icon className="w-5 h-5 text-foreground" />
+                  <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${area.color} flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
+                    <area.icon className="w-5 h-5 text-foreground group-hover:animate-pulse transition-all duration-300" />
                   </div>
-                  <p className="text-xs font-medium text-foreground leading-tight">{area.title}</p>
+                  <p className="text-xs font-medium text-foreground leading-tight group-hover:text-primary transition-colors duration-300">{area.title}</p>
                 </div>
               ))}
             </div>
