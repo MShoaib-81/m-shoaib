@@ -24,7 +24,7 @@ const AboutSection = () => {
         <ScrollReveal>
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground tracking-tight">
-              About <span className="gradient-text">Me</span>
+              About Me
             </h2>
           </div>
         </ScrollReveal>
@@ -96,7 +96,7 @@ const AboutSection = () => {
         <ScrollReveal delay={300}>
           <div className="mt-20">
             <h3 className="text-2xl font-bold font-display text-foreground text-center mb-10">
-              Research <span className="gradient-text">Interests</span>
+              Research Interests
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {researchAreas.map((area, index) => (
