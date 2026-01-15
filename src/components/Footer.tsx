@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Brand */}
           <div className="text-center md:text-left">
-            <span className="text-xl font-bold font-display gradient-text">Muhammad Shoaib</span>
+            <span className="text-xl font-bold font-display text-foreground">Muhammad Shoaib</span>
             <p className="text-muted-foreground text-sm mt-1">
               AI & ML Research Student
             </p>

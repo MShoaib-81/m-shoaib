@@ -60,7 +60,7 @@ const ContactSection = () => {
         <ScrollReveal>
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground tracking-tight">
-              Get In <span className="gradient-text">Touch</span>
+              Get In Touch
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
               Let's connect and discuss new opportunities, projects, or collaborations
