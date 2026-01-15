@@ -52,8 +52,8 @@ const Navigation = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="text-xl font-bold font-display">
-            <span className="gradient-text">MS</span>
+          <Link to="/" className="flex items-center gap-2">
+            <img src="/favicon.png" alt="MS Logo" className="w-8 h-8 rounded-full" />
           </Link>
 
           {/* Desktop Navigation */}
