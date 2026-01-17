@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
-import { FileText, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
+import { FileText, ExternalLink, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import ScrollReveal from "./ScrollReveal";
 
 interface Publication {
@@ -174,6 +175,10 @@ const PublicationsSection = () => {
             <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
               Research contributions in AI, machine learning, and healthcare technology
             </p>
+            <Link to="/publications" className="inline-flex items-center mt-4 text-primary hover:text-primary/80 transition-colors font-medium">
+              View All Publications
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Link>
           </div>
         </ScrollReveal>
 
