@@ -29,12 +29,12 @@ const AboutSection = () => {
           </div>
         </ScrollReveal>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
           {/* Left Column - Image + Info Cards */}
           <ScrollReveal delay={100}>
-            <div className="space-y-6">
+            <div className="space-y-5">
               {/* Profile Image with Open to Work Badge */}
-              <div className="relative max-w-sm mx-auto lg:mx-0 group">
+              <div className="relative max-w-[280px] mx-auto lg:mx-0 group">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl blur-2xl transition-all duration-500 group-hover:from-primary/40 group-hover:to-secondary/40 group-hover:blur-3xl" />
                 <img
                   src={profilePhoto}
