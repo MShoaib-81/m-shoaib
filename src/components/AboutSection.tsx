@@ -36,13 +36,25 @@ const AboutSection = () => {
               {/* Profile Image with Animated Border */}
               <div className="relative group">
                 {/* Animated rotating border */}
-                <div className="absolute -inset-[3px] rounded-2xl bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_100%] animate-[gradient-shift_3s_linear_infinite] opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
+                <div 
+                  className="absolute -inset-1 rounded-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-[gradient-shift_3s_linear_infinite]"
+                  style={{
+                    background: 'linear-gradient(90deg, #3b82f6, #06b6d4, #8b5cf6, #3b82f6)',
+                    backgroundSize: '300% 100%',
+                  }}
+                />
                 
                 {/* Glowing effect behind the border */}
-                <div className="absolute -inset-[3px] rounded-2xl bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_100%] animate-[gradient-shift_3s_linear_infinite] blur-md opacity-50 group-hover:opacity-80 transition-opacity duration-500" />
+                <div 
+                  className="absolute -inset-1 rounded-2xl blur-lg opacity-60 group-hover:opacity-90 transition-opacity duration-500 animate-[gradient-shift_3s_linear_infinite]"
+                  style={{
+                    background: 'linear-gradient(90deg, #3b82f6, #06b6d4, #8b5cf6, #3b82f6)',
+                    backgroundSize: '300% 100%',
+                  }}
+                />
                 
                 {/* Inner container to create the border effect */}
-                <div className="relative rounded-2xl bg-background p-[3px]">
+                <div className="relative rounded-2xl p-[3px]" style={{ background: 'hsl(220 20% 4%)' }}>
                   <img
                     src={profilePhoto}
                     alt="Muhammad Shoaib"
