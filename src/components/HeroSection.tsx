@@ -128,7 +128,7 @@ const HeroSection = () => {
             <div className="relative group">
               {/* Animated rotating border */}
               <div 
-                className="absolute -inset-1.5 rounded-full opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-[gradient-shift_3s_linear_infinite]"
+                className="absolute -inset-1.5 rounded-full opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-[gradient-shift_6s_linear_infinite]"
                 style={{
                   background: 'linear-gradient(90deg, #3b82f6, #06b6d4, #8b5cf6, #3b82f6)',
                   backgroundSize: '300% 100%',
@@ -137,7 +137,7 @@ const HeroSection = () => {
               
               {/* Glowing effect behind the border */}
               <div 
-                className="absolute -inset-1.5 rounded-full blur-xl opacity-60 group-hover:opacity-90 transition-opacity duration-500 animate-[gradient-shift_3s_linear_infinite]"
+                className="absolute -inset-1.5 rounded-full blur-xl opacity-60 group-hover:opacity-90 transition-opacity duration-500 animate-[gradient-shift_6s_linear_infinite]"
                 style={{
                   background: 'linear-gradient(90deg, #3b82f6, #06b6d4, #8b5cf6, #3b82f6)',
                   backgroundSize: '300% 100%',
