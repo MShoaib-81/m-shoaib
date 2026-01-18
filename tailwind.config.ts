@@ -132,6 +132,10 @@ export default {
           "0%, 50%": { borderColor: "transparent" },
           "51%, 100%": { borderColor: "hsl(var(--primary))" },
         },
+        "gradient-shift": {
+          "0%": { backgroundPosition: "0% 50%" },
+          "100%": { backgroundPosition: "200% 50%" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
