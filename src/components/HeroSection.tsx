@@ -125,12 +125,27 @@ const HeroSection = () => {
 
           {/* Right Visual */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="relative">
-              {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full blur-3xl scale-110" />
+            <div className="relative group">
+              {/* Animated rotating border */}
+              <div 
+                className="absolute -inset-1.5 rounded-full opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-[gradient-shift_3s_linear_infinite]"
+                style={{
+                  background: 'linear-gradient(90deg, #3b82f6, #06b6d4, #8b5cf6, #3b82f6)',
+                  backgroundSize: '300% 100%',
+                }}
+              />
+              
+              {/* Glowing effect behind the border */}
+              <div 
+                className="absolute -inset-1.5 rounded-full blur-xl opacity-60 group-hover:opacity-90 transition-opacity duration-500 animate-[gradient-shift_3s_linear_infinite]"
+                style={{
+                  background: 'linear-gradient(90deg, #3b82f6, #06b6d4, #8b5cf6, #3b82f6)',
+                  backgroundSize: '300% 100%',
+                }}
+              />
               
               {/* Profile Image Container */}
-              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full p-1" style={{ background: 'hsl(220 20% 4%)' }}>
                 <img
                   src={profilePhoto}
                   alt="Muhammad Shoaib - AI/ML Research Student"
