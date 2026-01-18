@@ -33,37 +33,16 @@ const AboutSection = () => {
           {/* Left Column - Image + Info Cards */}
           <ScrollReveal delay={100}>
             <div className="space-y-3 w-full max-w-[260px] mx-auto lg:mx-0">
-              {/* Profile Image with Animated Border */}
+              {/* Profile Image */}
               <div className="relative group">
-                {/* Animated rotating border */}
-                <div 
-                  className="absolute -inset-1 rounded-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-[gradient-shift_3s_linear_infinite]"
-                  style={{
-                    background: 'linear-gradient(90deg, #3b82f6, #06b6d4, #8b5cf6, #3b82f6)',
-                    backgroundSize: '300% 100%',
-                  }}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl blur-2xl transition-all duration-500 group-hover:from-primary/40 group-hover:to-secondary/40 group-hover:blur-3xl" />
+                <img
+                  src={profilePhoto}
+                  alt="Muhammad Shoaib"
+                  className="relative w-full aspect-square object-cover object-top rounded-2xl border border-white/10 transition-all duration-500 group-hover:border-primary/30 group-hover:shadow-[0_0_30px_rgba(0,188,212,0.3)]"
                 />
-                
-                {/* Glowing effect behind the border */}
-                <div 
-                  className="absolute -inset-1 rounded-2xl blur-lg opacity-60 group-hover:opacity-90 transition-opacity duration-500 animate-[gradient-shift_3s_linear_infinite]"
-                  style={{
-                    background: 'linear-gradient(90deg, #3b82f6, #06b6d4, #8b5cf6, #3b82f6)',
-                    backgroundSize: '300% 100%',
-                  }}
-                />
-                
-                {/* Inner container to create the border effect */}
-                <div className="relative rounded-2xl p-[3px]" style={{ background: 'hsl(220 20% 4%)' }}>
-                  <img
-                    src={profilePhoto}
-                    alt="Muhammad Shoaib"
-                    className="relative w-full aspect-square object-cover object-top rounded-xl transition-all duration-500"
-                  />
-                </div>
-                
                 {/* Open to Work Badge */}
-                <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-green-500/20 border border-green-500/40 backdrop-blur-sm z-10">
+                <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-green-500/20 border border-green-500/40 backdrop-blur-sm">
                   <span className="text-[10px] font-medium text-green-400">Open to Work</span>
                 </div>
               </div>
