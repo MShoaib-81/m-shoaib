@@ -126,17 +126,9 @@ const HeroSection = () => {
           {/* Right Visual */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
             <div className="relative group">
-              {/* Subtle breathing glow effect */}
+              {/* Static gradient border */}
               <div 
-                className="absolute -inset-1 rounded-full opacity-15 group-hover:opacity-25 transition-opacity duration-1000 animate-[pulse_8s_ease-in-out_infinite]"
-                style={{
-                  background: 'linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%)',
-                }}
-              />
-              
-              {/* Soft static border */}
-              <div 
-                className="absolute -inset-0.5 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20"
+                className="absolute -inset-0.5 rounded-full bg-gradient-to-br from-primary/30 to-secondary/30"
               />
               
               {/* Profile Image Container */}
