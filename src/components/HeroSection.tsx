@@ -140,7 +140,7 @@ const HeroSection = () => {
               />
               
               {/* Profile Image Container */}
-              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full p-1" style={{ background: 'hsl(220 20% 4%)' }}>
+              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full p-1 transition-transform duration-500 ease-out group-hover:scale-105" style={{ background: 'hsl(220 20% 4%)' }}>
                 <img
                   src={profilePhoto}
                   alt="Muhammad Shoaib - AI/ML Research Student"
