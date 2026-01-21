@@ -1,6 +1,5 @@
 import { GraduationCap, Brain, Code, Stethoscope, Heart, MessageSquare, Eye, Lightbulb } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
-import profilePhoto from "@/assets/profile-photo.png";
 
 const infoCards = [
   { icon: Brain, label: "Focus", value: "Healthcare AI", color: "text-primary" },
@@ -30,23 +29,9 @@ const AboutSection = () => {
         </ScrollReveal>
 
         <div className="grid lg:grid-cols-[auto_1fr] gap-6 lg:gap-8 items-start">
-          {/* Left Column - Image + Info Cards */}
+          {/* Left Column - Info Cards */}
           <ScrollReveal delay={100}>
             <div className="space-y-3 w-full max-w-[260px] mx-auto lg:mx-0">
-              {/* Profile Image */}
-              <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full blur-2xl transition-all duration-500 group-hover:from-primary/30 group-hover:to-secondary/30" />
-                <img
-                  src={profilePhoto}
-                  alt="Muhammad Shoaib"
-                  className="relative w-full aspect-square object-cover object-top rounded-full border-2 border-white/10 transition-all duration-500 group-hover:border-primary/40 group-hover:shadow-[0_0_40px_rgba(0,188,212,0.2)]"
-                />
-                {/* Open to Work Badge - tucked in bottom-right corner */}
-                <div className="absolute bottom-4 right-4 px-3 py-1.5 rounded-full bg-green-500/90 shadow-lg shadow-green-500/30">
-                  <span className="text-[11px] font-semibold text-white tracking-wide">Open to Work</span>
-                </div>
-              </div>
-
               {/* Compact Info Cards */}
               <div className="flex gap-2">
                 {infoCards.map((card, index) => (
