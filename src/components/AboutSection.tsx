@@ -28,34 +28,32 @@ const AboutSection = () => {
           </div>
         </ScrollReveal>
 
-        <div className="grid lg:grid-cols-[auto_1fr] gap-6 lg:gap-8 items-start">
-          {/* Left Column - Info Cards */}
+        {/* Centered Content */}
+        <div className="max-w-3xl mx-auto space-y-8">
+          {/* Info Cards - Centered Row */}
           <ScrollReveal delay={100}>
-            <div className="space-y-3 w-full max-w-[260px] mx-auto lg:mx-0">
-              {/* Compact Info Cards */}
-              <div className="flex gap-2">
-                {infoCards.map((card, index) => (
-                  <div 
-                    key={index} 
-                    className="flex-1 py-2.5 px-2 rounded-lg bg-surface/60 border border-white/5 backdrop-blur-sm text-center transition-all duration-300 hover:border-primary/30 hover:bg-surface/80 group"
-                  >
-                    <card.icon className={`w-4 h-4 ${card.color} mx-auto mb-1.5 group-hover:scale-110 transition-transform duration-300`} />
-                    <p className="text-[9px] text-muted-foreground uppercase tracking-wider mb-0.5">{card.label}</p>
-                    <p className="text-[11px] font-semibold text-foreground leading-tight">{card.value}</p>
-                  </div>
-                ))}
-              </div>
+            <div className="flex justify-center gap-3 flex-wrap">
+              {infoCards.map((card, index) => (
+                <div 
+                  key={index} 
+                  className="py-3 px-5 rounded-xl bg-surface/60 border border-white/5 backdrop-blur-sm text-center transition-all duration-300 hover:border-primary/30 hover:bg-surface/80 group"
+                >
+                  <card.icon className={`w-5 h-5 ${card.color} mx-auto mb-2 group-hover:scale-110 transition-transform duration-300`} />
+                  <p className="text-[10px] text-muted-foreground uppercase tracking-wider mb-1">{card.label}</p>
+                  <p className="text-sm font-semibold text-foreground">{card.value}</p>
+                </div>
+              ))}
             </div>
           </ScrollReveal>
 
-          {/* Right Column - Bio */}
+          {/* Bio - Centered */}
           <ScrollReveal delay={200}>
-            <div className="space-y-5">
+            <div className="text-center space-y-5">
               <h3 className="text-2xl font-bold font-display text-foreground">
                 Passionate AI Researcher & Developer
               </h3>
               
-              <div className="space-y-3 text-muted-foreground leading-7">
+              <div className="space-y-4 text-muted-foreground leading-7">
                 <p>
                   I'm an AI student and researcher passionate about computer vision, medical AI, 
                   and intelligent systems with real-world impact. My focus is on building applications 
