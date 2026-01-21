@@ -22,8 +22,9 @@ const AboutSection = () => {
       <div className="container mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground tracking-tight">
-              About Me
+            <h2 className="text-3xl md:text-4xl font-bold font-display tracking-tight">
+              <span className="text-foreground">About</span>{" "}
+              <span className="text-primary">Me</span>
             </h2>
           </div>
         </ScrollReveal>
@@ -49,8 +50,9 @@ const AboutSection = () => {
           {/* Bio - Centered */}
           <ScrollReveal delay={200}>
             <div className="text-center space-y-5">
-              <h3 className="text-2xl font-bold font-display text-foreground">
-                Passionate AI Researcher & Developer
+              <h3 className="text-2xl font-bold font-display">
+                <span className="text-foreground">Passionate AI</span>{" "}
+                <span className="text-primary">Researcher & Developer</span>
               </h3>
               
               <div className="space-y-4 text-muted-foreground leading-7">
@@ -78,8 +80,9 @@ const AboutSection = () => {
         {/* Research Interests - Reduced top margin */}
         <ScrollReveal delay={300}>
           <div className="mt-10">
-            <h3 className="text-2xl font-bold font-display text-foreground text-center mb-6">
-              Research Interests
+            <h3 className="text-2xl font-bold font-display text-center mb-6">
+              <span className="text-foreground">Research</span>{" "}
+              <span className="text-primary">Interests</span>
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
               {researchAreas.map((area, index) => (
