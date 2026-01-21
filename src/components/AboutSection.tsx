@@ -24,7 +24,7 @@ const AboutSection = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold font-display tracking-tight">
               <span className="text-foreground">About</span>{" "}
-              <span className="text-primary">Me</span>
+              <span className="bg-gradient-to-r from-primary via-cyan-400 to-secondary bg-clip-text text-transparent">Me</span>
             </h2>
           </div>
         </ScrollReveal>
@@ -52,7 +52,7 @@ const AboutSection = () => {
             <div className="text-center space-y-5">
               <h3 className="text-2xl font-bold font-display">
                 <span className="text-foreground">Passionate AI</span>{" "}
-                <span className="text-primary">Researcher & Developer</span>
+                <span className="bg-gradient-to-r from-primary via-cyan-400 to-secondary bg-clip-text text-transparent">Researcher & Developer</span>
               </h3>
               
               <div className="space-y-4 text-muted-foreground leading-7">
@@ -82,7 +82,7 @@ const AboutSection = () => {
           <div className="mt-10">
             <h3 className="text-2xl font-bold font-display text-center mb-6">
               <span className="text-foreground">Research</span>{" "}
-              <span className="text-primary">Interests</span>
+              <span className="bg-gradient-to-r from-primary via-cyan-400 to-secondary bg-clip-text text-transparent">Interests</span>
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
               {researchAreas.map((area, index) => (
