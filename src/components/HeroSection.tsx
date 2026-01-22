@@ -79,8 +79,9 @@ const HeroSection = () => {
               </div>
               
               {/* Name */}
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-tight text-foreground">
-                Muhammad Shoaib
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-tight">
+                <span className="text-foreground">Muhammad</span>{" "}
+                <span className="bg-gradient-to-r from-primary via-cyan-400 to-secondary bg-clip-text text-transparent">Shoaib</span>
               </h1>
               
               {/* Static Subtitle */}
