@@ -44,8 +44,9 @@ const SkillsSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground tracking-tight">
-              Technical Skills
+            <h2 className="text-3xl md:text-4xl font-bold font-display tracking-tight">
+              <span className="text-foreground">Technical</span>{" "}
+              <span className="bg-gradient-to-r from-primary via-cyan-400 to-secondary bg-clip-text text-transparent">Skills</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
               My expertise in AI/ML, development frameworks, and modern technologies
