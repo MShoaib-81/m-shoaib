@@ -79,7 +79,7 @@ const HeroSection = () => {
               
               {/* Typewriter Role */}
               <div className="h-8 flex items-center">
-                <span className="text-lg md:text-xl text-muted-foreground font-medium">
+                <span className="text-lg md:text-xl text-primary-foreground font-semibold">
                   {displayedText}
                   <span className="inline-block w-0.5 h-5 bg-primary ml-1 animate-blink" />
                 </span>
