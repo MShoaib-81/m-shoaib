@@ -1,22 +1,52 @@
 import ScrollReveal from "./ScrollReveal";
+import { 
+  Brain, Eye, MessageSquare, Lightbulb, Code, 
+  GitBranch, Terminal, Container, BookOpen, Cloud,
+  Cpu, BarChart3, Database, Layers, Zap, Binary
+} from "lucide-react";
+import { ReactNode } from "react";
 
-const coreSkills = [
-  "Python", "TensorFlow", "PyTorch", "Machine Learning", "Deep Learning", 
-  "Computer Vision", "NLP", "Explainable AI", "C++", "JavaScript"
+type SkillItem = {
+  name: string;
+  icon: ReactNode;
+};
+
+const coreSkills: SkillItem[] = [
+  { name: "Python", icon: <Code size={16} /> },
+  { name: "TensorFlow", icon: <Layers size={16} /> },
+  { name: "PyTorch", icon: <Zap size={16} /> },
+  { name: "Machine Learning", icon: <Brain size={16} /> },
+  { name: "Deep Learning", icon: <Cpu size={16} /> },
+  { name: "Computer Vision", icon: <Eye size={16} /> },
+  { name: "NLP", icon: <MessageSquare size={16} /> },
+  { name: "Explainable AI", icon: <Lightbulb size={16} /> },
+  { name: "C++", icon: <Binary size={16} /> },
+  { name: "JavaScript", icon: <Code size={16} /> },
 ];
 
-const toolsSkills = [
-  "OpenCV", "Scikit-learn", "NumPy", "Pandas", "Keras", "Git & GitHub", 
-  "Linux", "Docker", "Jupyter", "Google Colab", "BERT", "Transformers"
+const toolsSkills: SkillItem[] = [
+  { name: "OpenCV", icon: <Eye size={16} /> },
+  { name: "Scikit-learn", icon: <BarChart3 size={16} /> },
+  { name: "NumPy", icon: <Database size={16} /> },
+  { name: "Pandas", icon: <Database size={16} /> },
+  { name: "Keras", icon: <Layers size={16} /> },
+  { name: "Git & GitHub", icon: <GitBranch size={16} /> },
+  { name: "Linux", icon: <Terminal size={16} /> },
+  { name: "Docker", icon: <Container size={16} /> },
+  { name: "Jupyter", icon: <BookOpen size={16} /> },
+  { name: "Google Colab", icon: <Cloud size={16} /> },
+  { name: "BERT", icon: <MessageSquare size={16} /> },
+  { name: "Transformers", icon: <Cpu size={16} /> },
 ];
 
-const SkillBadge = ({ name }: { name: string }) => (
-  <span className="inline-flex items-center px-4 py-2 rounded-full bg-surface/40 border border-primary/20 backdrop-blur-sm text-sm font-medium text-foreground whitespace-nowrap mx-2">
-    {name}
+const SkillBadge = ({ skill }: { skill: SkillItem }) => (
+  <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface/40 border border-primary/20 backdrop-blur-sm text-sm font-medium text-foreground whitespace-nowrap mx-2">
+    <span className="text-primary">{skill.icon}</span>
+    {skill.name}
   </span>
 );
 
-const MarqueeRow = ({ skills, direction = "left" }: { skills: string[], direction?: "left" | "right" }) => (
+const MarqueeRow = ({ skills, direction = "left" }: { skills: SkillItem[], direction?: "left" | "right" }) => (
   <div className="relative overflow-hidden py-3">
     {/* Gradient masks */}
     <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10" />
@@ -25,11 +55,11 @@ const MarqueeRow = ({ skills, direction = "left" }: { skills: string[], directio
     <div className={`flex ${direction === "left" ? "animate-marquee-left" : "animate-marquee-right"}`}>
       {/* First set */}
       {skills.map((skill, index) => (
-        <SkillBadge key={`first-${index}`} name={skill} />
+        <SkillBadge key={`first-${index}`} skill={skill} />
       ))}
       {/* Duplicate for seamless loop */}
       {skills.map((skill, index) => (
-        <SkillBadge key={`second-${index}`} name={skill} />
+        <SkillBadge key={`second-${index}`} skill={skill} />
       ))}
     </div>
   </div>
