@@ -8,7 +8,6 @@ const Navigation = () => {
   const location = useLocation();
 
   const navItems = [
-    { label: 'Home', href: '#home', type: 'hash' },
     { label: 'About', href: '#about', type: 'hash' },
     { label: 'Projects', href: '#projects', type: 'hash' },
     { label: 'Publications', href: '#publications', type: 'hash' },
