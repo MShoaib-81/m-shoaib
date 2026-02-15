@@ -1,9 +1,5 @@
 import ScrollReveal from "./ScrollReveal";
-import { 
-  Brain, Eye, MessageSquare, Lightbulb, Code, 
-  GitBranch, Terminal, Container, BookOpen, Cloud,
-  Cpu, BarChart3, Database, Layers, Zap, Binary
-} from "lucide-react";
+import { Brain, Eye, MessageSquare, Lightbulb, Cpu } from "lucide-react";
 import { ReactNode } from "react";
 
 type SkillItem = {
@@ -11,32 +7,43 @@ type SkillItem = {
   icon: ReactNode;
 };
 
+const BrandIcon = ({ slug, alt }: { slug: string; alt: string }) => (
+  <img
+    src={`https://cdn.simpleicons.org/${slug}/22d3ee`}
+    alt={alt}
+    width={16}
+    height={16}
+    className="shrink-0"
+    loading="lazy"
+  />
+);
+
 const coreSkills: SkillItem[] = [
-  { name: "Python", icon: <Code size={16} /> },
-  { name: "TensorFlow", icon: <Layers size={16} /> },
-  { name: "PyTorch", icon: <Zap size={16} /> },
+  { name: "Python", icon: <BrandIcon slug="python" alt="Python" /> },
+  { name: "TensorFlow", icon: <BrandIcon slug="tensorflow" alt="TensorFlow" /> },
+  { name: "PyTorch", icon: <BrandIcon slug="pytorch" alt="PyTorch" /> },
   { name: "Machine Learning", icon: <Brain size={16} /> },
   { name: "Deep Learning", icon: <Cpu size={16} /> },
   { name: "Computer Vision", icon: <Eye size={16} /> },
   { name: "NLP", icon: <MessageSquare size={16} /> },
   { name: "Explainable AI", icon: <Lightbulb size={16} /> },
-  { name: "C++", icon: <Binary size={16} /> },
-  { name: "JavaScript", icon: <Code size={16} /> },
+  { name: "C++", icon: <BrandIcon slug="cplusplus" alt="C++" /> },
+  { name: "JavaScript", icon: <BrandIcon slug="javascript" alt="JavaScript" /> },
 ];
 
 const toolsSkills: SkillItem[] = [
-  { name: "OpenCV", icon: <Eye size={16} /> },
-  { name: "Scikit-learn", icon: <BarChart3 size={16} /> },
-  { name: "NumPy", icon: <Database size={16} /> },
-  { name: "Pandas", icon: <Database size={16} /> },
-  { name: "Keras", icon: <Layers size={16} /> },
-  { name: "Git & GitHub", icon: <GitBranch size={16} /> },
-  { name: "Linux", icon: <Terminal size={16} /> },
-  { name: "Docker", icon: <Container size={16} /> },
-  { name: "Jupyter", icon: <BookOpen size={16} /> },
-  { name: "Google Colab", icon: <Cloud size={16} /> },
-  { name: "BERT", icon: <MessageSquare size={16} /> },
-  { name: "Transformers", icon: <Cpu size={16} /> },
+  { name: "OpenCV", icon: <BrandIcon slug="opencv" alt="OpenCV" /> },
+  { name: "Scikit-learn", icon: <BrandIcon slug="scikitlearn" alt="Scikit-learn" /> },
+  { name: "NumPy", icon: <BrandIcon slug="numpy" alt="NumPy" /> },
+  { name: "Pandas", icon: <BrandIcon slug="pandas" alt="Pandas" /> },
+  { name: "Keras", icon: <BrandIcon slug="keras" alt="Keras" /> },
+  { name: "Git & GitHub", icon: <BrandIcon slug="github" alt="GitHub" /> },
+  { name: "Linux", icon: <BrandIcon slug="linux" alt="Linux" /> },
+  { name: "Docker", icon: <BrandIcon slug="docker" alt="Docker" /> },
+  { name: "Jupyter", icon: <BrandIcon slug="jupyter" alt="Jupyter" /> },
+  { name: "Google Colab", icon: <BrandIcon slug="googlecolab" alt="Google Colab" /> },
+  { name: "BERT", icon: <BrandIcon slug="google" alt="BERT" /> },
+  { name: "Transformers", icon: <BrandIcon slug="huggingface" alt="Transformers" /> },
 ];
 
 const SkillBadge = ({ skill }: { skill: SkillItem }) => (
