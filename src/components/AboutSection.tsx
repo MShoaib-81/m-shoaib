@@ -2,17 +2,17 @@ import { GraduationCap, Brain, Code, Stethoscope, Heart, MessageSquare, Eye, Lig
 import ScrollReveal from "./ScrollReveal";
 
 const infoCards = [
-  { icon: Brain, label: "Focus", value: "Healthcare AI", color: "text-primary" },
+  { icon: Brain, label: "Focus", value: "Healthcare AI & XAI", color: "text-primary" },
   { icon: GraduationCap, label: "Education", value: "BS in AI", color: "text-secondary" },
-  { icon: Code, label: "Experience", value: "AI Developer", color: "text-purple-400" },
+  { icon: Code, label: "Recognition", value: "Best Paper Awardee", color: "text-purple-400" },
 ];
 
 const researchAreas = [
-  { icon: Stethoscope, title: "Medical AI & Diagnostics", color: "from-red-500/20 to-red-600/20" },
+  { icon: Stethoscope, title: "Alzheimer's & Medical AI", color: "from-red-500/20 to-red-600/20" },
   { icon: Brain, title: "Deep Learning", color: "from-purple-500/20 to-purple-600/20" },
   { icon: Eye, title: "Computer Vision", color: "from-blue-500/20 to-blue-600/20" },
-  { icon: MessageSquare, title: "Natural Language Processing", color: "from-green-500/20 to-green-600/20" },
-  { icon: Heart, title: "Mental Health AI", color: "from-pink-500/20 to-pink-600/20" },
+  { icon: MessageSquare, title: "NLP for Low-Resource Languages", color: "from-green-500/20 to-green-600/20" },
+  { icon: Heart, title: "Depression Detection AI", color: "from-pink-500/20 to-pink-600/20" },
   { icon: Lightbulb, title: "Explainable AI (XAI)", color: "from-yellow-500/20 to-yellow-600/20" },
 ];
 
@@ -51,26 +51,19 @@ const AboutSection = () => {
           <ScrollReveal delay={200}>
             <div className="text-center space-y-5">
               <h3 className="text-2xl font-bold font-display">
-                <span className="text-foreground">Passionate AI</span>{" "}
-                <span className="bg-gradient-to-r from-primary via-cyan-400 to-secondary bg-clip-text text-transparent">Researcher & Developer</span>
+                <span className="text-foreground">Research-Driven AI</span>{" "}
+                <span className="bg-gradient-to-r from-primary via-cyan-400 to-secondary bg-clip-text text-transparent">for Healthcare & Society</span>
               </h3>
               
               <div className="space-y-4 text-muted-foreground leading-7">
                 <p>
-                  I'm an AI student and researcher passionate about computer vision, medical AI, 
-                  and intelligent systems with real-world impact. My focus is on building applications 
-                  that enhance healthcare and mental well-being.
+                  I'm an AI researcher focused on building intelligent systems that serve people — from early Alzheimer's detection and depression screening to making NLP accessible for low-resource languages like Urdu. My work sits at the intersection of deep learning, medical imaging, and human-centered design.
                 </p>
                 <p>
-                  From brain tumor detection in MRI scans to depression detection on social media, 
-                  I work at the intersection of deep learning, natural language processing, and 
-                  practical solutions that make a difference.
+                  I believe AI should be explainable, trustworthy, and grounded in real clinical and social needs — not just technically impressive. My recent research on transformer explainability for Urdu sentiment analysis received the Best Paper Award, reflecting my commitment to both rigor and relevance.
                 </p>
                 <p>
-                  With a strong foundation in machine learning frameworks and a passion for 
-                  explainable AI, I bridge the gap between cutting-edge research and real-world 
-                  applications. My goal is to leverage AI to create meaningful impact in 
-                  healthcare and beyond.
+                  Whether it's computer vision for diagnostics or NLP for underserved communities, I build systems that prioritize impact over hype — bridging research and practical applications to create meaningful change in healthcare and mental well-being.
                 </p>
               </div>
             </div>
