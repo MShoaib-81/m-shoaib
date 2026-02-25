@@ -11,6 +11,7 @@ const Navigation = () => {
     { label: 'About', href: '#about', type: 'hash' },
     { label: 'Projects', href: '#projects', type: 'hash' },
     { label: 'Publications', href: '#publications', type: 'hash' },
+    { label: 'Certificates', href: '#certificates', type: 'hash' },
     { label: 'Contact', href: '#contact', type: 'hash' },
   ];
 
