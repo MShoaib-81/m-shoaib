@@ -18,31 +18,13 @@ interface Publication {
 
 const publications: Publication[] = [
   {
-    title: "Explainable AI for Alzheimer's Disease Detection Using Multimodal Data",
+    title: "Explainability of Transformer Models for Sentiment Analysis in Urdu",
     authors: "Muhammad Shoaib et al.",
-    venue: "Journal of Medical AI",
-    year: "2024",
-    abstract: "A comprehensive study on leveraging explainable artificial intelligence techniques for early detection of Alzheimer's disease using multimodal neuroimaging data.",
-    tags: ["XAI", "Medical Imaging", "Deep Learning"],
-    doi: "https://doi.org/example",
-    status: "Under Review"
-  },
-  {
-    title: "Deep Learning Approaches for Medical Image Analysis: A Systematic Review",
-    authors: "Muhammad Shoaib et al.",
-    venue: "IEEE Access",
-    year: "2024",
-    abstract: "A systematic review of deep learning methodologies applied to medical image analysis, covering CNNs, transformers, and hybrid architectures.",
-    tags: ["Deep Learning", "Medical Imaging", "Review"],
-    status: "Under Review"
-  },
-  {
-    title: "Transformer-Based Sentiment Analysis with Explainability",
-    authors: "Muhammad Shoaib et al.",
-    venue: "NLP Conference",
-    year: "2023",
-    abstract: "Novel approach combining transformer architectures with explainability methods for transparent sentiment classification in social media text.",
-    tags: ["NLP", "Transformers", "XAI"],
+    venue: "CSET 2026",
+    year: "2026",
+    abstract: "This research investigates the explainability of transformer-based models for sentiment analysis in Urdu, a low-resource language. By integrating interpretability techniques with state-of-the-art transformers, the study provides transparent and trustworthy sentiment classification — advancing NLP for underserved languages.",
+    tags: ["NLP", "Transformers", "XAI", "Urdu", "Sentiment Analysis"],
+    pdfUrl: "/CSET2026_1_1.pdf",
     status: "Published"
   }
 ];
@@ -78,10 +60,10 @@ const PublicationCard = ({ publication, isCenter }: { publication: Publication; 
       </div>
 
       {/* Hover Overlay */}
-      {publication.doi && (
+      {(publication.doi || publication.pdfUrl) && (
         <div className="absolute inset-0 bg-background/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <a
-            href={publication.doi}
+            href={publication.pdfUrl || publication.doi}
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -23,59 +23,14 @@ interface Publication {
 
 const publications: Publication[] = [
   {
-    title: "Explainable AI for Alzheimer's Disease Detection Using Multimodal Data",
-    authors: "Muhammad Shoaib, Ahmed Khan, Sarah Johnson",
-    venue: "Journal of Medical AI",
-    year: "2024",
-    abstract: "A comprehensive study on leveraging explainable artificial intelligence techniques for early detection of Alzheimer's disease using multimodal neuroimaging data. This research introduces a novel framework that combines deep learning models with interpretability methods such as SHAP and Grad-CAM to provide clinicians with transparent and trustworthy diagnostic support. Our approach achieved 94.2% accuracy on the ADNI dataset while maintaining high interpretability scores.",
-    tags: ["XAI", "Medical Imaging", "Deep Learning", "Alzheimer's", "Healthcare AI"],
-    doi: "https://doi.org/example1",
-    status: "Under Review",
-    type: "Journal"
-  },
-  {
-    title: "Deep Learning Approaches for Medical Image Analysis: A Systematic Review",
-    authors: "Muhammad Shoaib, Maria Garcia, John Smith",
-    venue: "IEEE Access",
-    year: "2024",
-    abstract: "A systematic review of deep learning methodologies applied to medical image analysis, covering CNNs, transformers, and hybrid architectures. This comprehensive survey analyzes over 200 papers published between 2018-2024, categorizing approaches by imaging modality (CT, MRI, X-ray, ultrasound) and clinical application. We identify key trends, challenges, and future directions in the field of AI-assisted medical diagnostics.",
-    tags: ["Deep Learning", "Medical Imaging", "Systematic Review", "CNN", "Transformers"],
-    status: "Under Review",
-    type: "Journal"
-  },
-  {
-    title: "Transformer-Based Sentiment Analysis with Explainability",
-    authors: "Muhammad Shoaib, Li Wei, Omar Hassan",
-    venue: "International Conference on Natural Language Processing",
-    year: "2023",
-    abstract: "Novel approach combining transformer architectures with explainability methods for transparent sentiment classification in social media text. We propose SentiXplain, a framework that integrates BERT-based models with attention visualization and feature attribution techniques. The system not only classifies sentiment but also highlights the key phrases and contextual elements driving each prediction, enabling users to understand and trust the model's decisions.",
-    tags: ["NLP", "Transformers", "XAI", "Sentiment Analysis", "BERT"],
-    doi: "https://doi.org/example2",
+    title: "Explainability of Transformer Models for Sentiment Analysis in Urdu",
+    authors: "Muhammad Shoaib et al.",
+    venue: "CSET 2026",
+    year: "2026",
+    abstract: "This research investigates the explainability of transformer-based models for sentiment analysis in Urdu, a low-resource language. By integrating interpretability techniques with state-of-the-art transformers, the study provides transparent and trustworthy sentiment classification — advancing NLP for underserved languages. Received the Best Paper Award.",
+    tags: ["NLP", "Transformers", "XAI", "Urdu", "Sentiment Analysis", "Best Paper Award"],
+    pdfUrl: "/CSET2026_1_1.pdf",
     status: "Published",
-    citations: 12,
-    type: "Conference"
-  },
-  {
-    title: "Depression Detection in Social Media Using Multimodal Deep Learning",
-    authors: "Muhammad Shoaib, Emily Brown, David Lee",
-    venue: "Journal of Affective Computing",
-    year: "2023",
-    abstract: "This paper presents a multimodal approach to detecting depression indicators in social media posts by analyzing both textual content and user behavior patterns. Our model combines LSTM networks for sequential text analysis with graph neural networks for social interaction patterns. Tested on a dataset of 50,000 users, our approach achieved 89.7% accuracy in identifying at-risk individuals while maintaining strict privacy standards.",
-    tags: ["Mental Health AI", "Multimodal Learning", "Social Media", "LSTM", "GNN"],
-    doi: "https://doi.org/example3",
-    status: "Published",
-    citations: 28,
-    type: "Journal"
-  },
-  {
-    title: "Real-Time Sign Language Recognition Using 3D CNNs and Attention Mechanisms",
-    authors: "Muhammad Shoaib, Anna Kowalski, Chen Xu",
-    venue: "Computer Vision and Pattern Recognition Workshop",
-    year: "2023",
-    abstract: "We present a real-time sign language recognition system utilizing 3D convolutional neural networks enhanced with spatial-temporal attention mechanisms. Our approach processes video streams to recognize American Sign Language (ASL) gestures with 96.3% accuracy and sub-100ms latency. The system is designed for deployment on edge devices, enabling accessible communication tools for the deaf and hard-of-hearing community.",
-    tags: ["Computer Vision", "Sign Language", "3D CNN", "Attention", "Accessibility"],
-    status: "Published",
-    citations: 8,
     type: "Conference"
   }
 ];
@@ -240,10 +195,10 @@ const Publications = () => {
                       </div>
 
                       {/* Actions */}
-                      {publication.doi && (
+                      {(publication.doi || publication.pdfUrl) && (
                         <div className="pt-2">
                           <a
-                            href={publication.doi}
+                            href={publication.pdfUrl || publication.doi}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
