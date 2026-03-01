@@ -10,6 +10,7 @@ import sentimentAnalysisImage from "@/assets/sentiment-analysis.jpg";
 import fakeNewsImage from "@/assets/fake-news.jpg";
 import chatbotImage from "@/assets/chatbot.jpg";
 import regressionModelsImage from "@/assets/regression-models.jpg";
+import depressionDetectionImage from "@/assets/depression-detection.jpg";
 
 interface Project {
   title: string;
@@ -87,6 +88,16 @@ const projects: Project[] = [
     githubUrl: "https://github.com/MShoaib-81/advanced-regression-models",
     category: "Research",
     status: "Completed"
+  },
+  {
+    title: "Depression Detection on Social Media",
+    subtitle: "Ongoing Research",
+    description: "Developing an NLP-based system to detect depression from social media text using ML and deep learning. Implementing data collection, preprocessing, feature extraction, and classification models.",
+    image: depressionDetectionImage,
+    technologies: ["Python", "NLP", "Deep Learning", "ML"],
+    githubUrl: "https://github.com/MShoaib-81",
+    category: "Medical AI",
+    status: "In Progress"
   }
 ];
 
