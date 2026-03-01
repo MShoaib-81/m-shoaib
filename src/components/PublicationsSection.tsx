@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { FileText, ExternalLink, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { FileText, ExternalLink, ChevronLeft, ChevronRight, ArrowRight, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import ScrollReveal from "./ScrollReveal";
@@ -14,6 +14,7 @@ interface Publication {
   doi?: string;
   pdfUrl?: string;
   status: "Published" | "Under Review" | "Preprint";
+  award?: string;
 }
 
 const publications: Publication[] = [
@@ -25,7 +26,8 @@ const publications: Publication[] = [
     abstract: "This research investigates the explainability of transformer-based models for sentiment analysis in Urdu, a low-resource language. By integrating interpretability techniques with state-of-the-art transformers, the study provides transparent and trustworthy sentiment classification — advancing NLP for underserved languages.",
     tags: ["NLP", "Transformers", "XAI", "Urdu", "Sentiment Analysis"],
     pdfUrl: "/CSET2026_1_1.pdf",
-    status: "Published"
+    status: "Published",
+    award: "Best Paper Award"
   }
 ];
 
@@ -37,7 +39,14 @@ const PublicationCard = ({ publication, isCenter }: { publication: Publication; 
   >
     {/* Header with Icon */}
     <div className="relative h-32 bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/10 flex items-center justify-center">
-      <FileText className="w-16 h-16 text-primary/60" />
+      {publication.award ? (
+        <div className="flex flex-col items-center gap-1">
+          <Award className="w-10 h-10 text-yellow-400" />
+          <span className="text-xs font-bold text-yellow-400 tracking-wide uppercase">{publication.award}</span>
+        </div>
+      ) : (
+        <FileText className="w-16 h-16 text-primary/60" />
+      )}
       
       {/* Status Badge */}
       <div className="absolute top-4 left-4">

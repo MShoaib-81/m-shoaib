@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FileText, ExternalLink, Calendar, Users, BookOpen, ArrowLeft, Search } from "lucide-react";
+import { FileText, ExternalLink, Calendar, Users, BookOpen, ArrowLeft, Search, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Navigation from "@/components/Navigation";
@@ -19,6 +19,7 @@ interface Publication {
   status: "Published" | "Under Review" | "Preprint";
   citations?: number;
   type: "Journal" | "Conference" | "Preprint";
+  award?: string;
 }
 
 const publications: Publication[] = [
@@ -31,7 +32,8 @@ const publications: Publication[] = [
     tags: ["NLP", "Transformers", "XAI", "Urdu", "Sentiment Analysis", "Best Paper Award"],
     pdfUrl: "/CSET2026_1_1.pdf",
     status: "Published",
-    type: "Conference"
+    type: "Conference",
+    award: "Best Paper Award"
   }
 ];
 
@@ -152,6 +154,12 @@ const Publications = () => {
                           <span className="px-3 py-1 rounded-full text-xs font-medium bg-surface/80 text-foreground border border-white/10">
                             {publication.type}
                           </span>
+                          {publication.award && (
+                            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-yellow-500/20 text-yellow-400 border border-yellow-500/30">
+                              <Award className="w-3 h-3" />
+                              {publication.award}
+                            </span>
+                          )}
                         </div>
                         <h2 className="text-xl md:text-2xl font-bold font-display text-foreground leading-tight">
                           {publication.title}
