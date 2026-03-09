@@ -1,160 +1,21 @@
-import { useState, useEffect, useCallback } from "react";
-import { FileText, ExternalLink, ChevronLeft, ChevronRight, ArrowRight, Award } from "lucide-react";
+import { FileText, ExternalLink, ArrowRight, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import ScrollReveal from "./ScrollReveal";
 
-interface Publication {
-  title: string;
-  authors: string;
-  venue: string;
-  year: string;
-  abstract: string;
-  tags: string[];
-  doi?: string;
-  pdfUrl?: string;
-  status: "Published" | "Under Review" | "Preprint";
-  award?: string;
-}
-
-const publications: Publication[] = [
-  {
-    title: "Explainability of Transformer Models for Sentiment Analysis in Urdu",
-    authors: "Muhammad Shoaib et al.",
-    venue: "CSET 2026",
-    year: "2026",
-    abstract: "This research investigates the explainability of transformer-based models for sentiment analysis in Urdu, a low-resource language. By integrating interpretability techniques with state-of-the-art transformers, the study provides transparent and trustworthy sentiment classification — advancing NLP for underserved languages.",
-    tags: ["NLP", "Transformers", "XAI", "Urdu", "Sentiment Analysis"],
-    pdfUrl: "/CSET2026_1_1.pdf",
-    status: "Published",
-    award: "Best Paper Award"
-  }
-];
-
-const PublicationCard = ({ publication, isCenter }: { publication: Publication; isCenter: boolean }) => (
-  <div 
-    className={`soft-card-hover group overflow-hidden h-full flex flex-col transition-all duration-500 ${
-      isCenter ? 'ring-2 ring-primary/40 shadow-[0_0_30px_rgba(0,188,212,0.2)]' : ''
-    }`}
-  >
-    {/* Header with Icon */}
-    <div className="relative h-32 bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/10 flex items-center justify-center">
-      {publication.award ? (
-        <div className="flex flex-col items-center gap-1">
-          <Award className="w-10 h-10 text-yellow-400" />
-          <span className="text-xs font-bold text-yellow-400 tracking-wide uppercase">{publication.award}</span>
-        </div>
-      ) : (
-        <FileText className="w-16 h-16 text-primary/60" />
-      )}
-      
-      {/* Status Badge */}
-      <div className="absolute top-4 left-4">
-        <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-          publication.status === "Published" 
-            ? "bg-green-500/20 text-green-400 border border-green-500/30"
-            : publication.status === "Under Review"
-            ? "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30"
-            : "bg-blue-500/20 text-blue-400 border border-blue-500/30"
-        }`}>
-          {publication.status}
-        </span>
-      </div>
-
-      {/* Year Badge */}
-      <div className="absolute top-4 right-4">
-        <span className="px-3 py-1 rounded-full text-xs font-medium bg-surface/80 text-foreground border border-white/10">
-          {publication.year}
-        </span>
-      </div>
-
-      {/* Hover Overlay */}
-      {(publication.doi || publication.pdfUrl) && (
-        <div className="absolute inset-0 bg-background/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <a
-            href={publication.pdfUrl || publication.doi}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button className="btn-primary">
-              <FileText className="w-4 h-4 mr-2" />
-              View Paper
-              <ExternalLink className="w-3 h-3 ml-2" />
-            </Button>
-          </a>
-        </div>
-      )}
-    </div>
-
-    {/* Content */}
-    <div className="p-6 flex-1 flex flex-col">
-      <div className="mb-2">
-        <h3 className="text-lg font-semibold text-foreground font-display line-clamp-2">
-          {publication.title}
-        </h3>
-        <p className="text-secondary text-sm font-medium mt-1">{publication.authors}</p>
-        <p className="text-muted-foreground text-xs mt-1">{publication.venue}</p>
-      </div>
-      <p className="text-sm text-muted-foreground mb-4 flex-1 line-clamp-3">
-        {publication.abstract}
-      </p>
-      
-      {/* Tags */}
-      <div className="flex flex-wrap gap-2">
-        {publication.tags.map((tag) => (
-          <span key={tag} className="tech-tag">
-            {tag}
-          </span>
-        ))}
-      </div>
-    </div>
-  </div>
-);
+const publication = {
+  title: "Explainability of Transformer Models for Sentiment Analysis in Urdu",
+  authors: "Muhammad Shoaib et al.",
+  venue: "CSET 2026",
+  year: "2026",
+  abstract: "This research investigates the explainability of transformer-based models for sentiment analysis in Urdu, a low-resource language. By integrating interpretability techniques with state-of-the-art transformers, the study provides transparent and trustworthy sentiment classification — advancing NLP for underserved languages.",
+  tags: ["NLP", "Transformers", "XAI", "Urdu", "Sentiment Analysis"],
+  pdfUrl: "/CSET2026_1_1.pdf",
+  status: "Published" as const,
+  award: "Best Paper Award"
+};
 
 const PublicationsSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [slidesPerView, setSlidesPerView] = useState(3);
-
-  // Handle responsive slides per view
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 640) {
-        setSlidesPerView(1);
-      } else if (window.innerWidth < 1024) {
-        setSlidesPerView(2);
-      } else {
-        setSlidesPerView(3);
-      }
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const totalSlides = publications.length;
-  
-  const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % totalSlides);
-  }, [totalSlides]);
-
-  const prevSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
-  }, [totalSlides]);
-
-  // Get visible publications with infinite loop
-  const getVisiblePublications = () => {
-    const visible = [];
-    for (let i = 0; i < slidesPerView; i++) {
-      const index = (currentIndex + i) % totalSlides;
-      visible.push({ publication: publications[index], index });
-    }
-    return visible;
-  };
-
-  const visiblePublications = getVisiblePublications();
-  const centerIndex = Math.floor(slidesPerView / 2);
-
   return (
     <section id="publications" className="py-24 relative">
       <div className="container mx-auto px-6">
@@ -174,58 +35,51 @@ const PublicationsSection = () => {
           </div>
         </ScrollReveal>
 
-        {/* Carousel Container */}
         <ScrollReveal delay={100}>
-          <div className="relative">
-            {/* Navigation Arrows */}
-            <button
-              onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 w-10 h-10 rounded-full bg-surface/80 border border-white/10 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-primary/20 hover:border-primary/30 transition-all duration-300"
-              aria-label="Previous publication"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            
-            <button
-              onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 w-10 h-10 rounded-full bg-surface/80 border border-white/10 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-primary/20 hover:border-primary/30 transition-all duration-300"
-              aria-label="Next publication"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
+          <div className="max-w-2xl mx-auto">
+            <div className="soft-card-hover group overflow-hidden flex flex-col ring-2 ring-primary/40 shadow-[0_0_30px_rgba(0,188,212,0.2)]">
+              {/* Header */}
+              <div className="relative h-32 bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/10 flex items-center justify-center">
+                <div className="flex flex-col items-center gap-1">
+                  <Award className="w-10 h-10 text-yellow-400" />
+                  <span className="text-xs font-bold text-yellow-400 tracking-wide uppercase">{publication.award}</span>
+                </div>
 
-            {/* Cards Container */}
-            <div className="overflow-hidden px-6">
-              <div className="flex gap-6 transition-transform duration-500 ease-out">
-                {visiblePublications.map(({ publication, index }, i) => (
-                  <div 
-                    key={`${publication.title}-${index}`}
-                    className="flex-shrink-0"
-                    style={{ width: `calc((100% - ${(slidesPerView - 1) * 24}px) / ${slidesPerView})` }}
-                  >
-                    <PublicationCard 
-                      publication={publication} 
-                      isCenter={slidesPerView === 3 ? i === centerIndex : slidesPerView === 1}
-                    />
-                  </div>
-                ))}
+                <div className="absolute top-4 left-4">
+                  <span className="px-3 py-1 rounded-full text-xs font-medium bg-green-500/20 text-green-400 border border-green-500/30">
+                    {publication.status}
+                  </span>
+                </div>
+
+                <div className="absolute top-4 right-4">
+                  <span className="px-3 py-1 rounded-full text-xs font-medium bg-surface/80 text-foreground border border-white/10">
+                    {publication.year}
+                  </span>
+                </div>
+
+                <div className="absolute inset-0 bg-background/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <a href={publication.pdfUrl} target="_blank" rel="noopener noreferrer">
+                    <Button className="btn-primary">
+                      <FileText className="w-4 h-4 mr-2" />
+                      View Paper
+                      <ExternalLink className="w-3 h-3 ml-2" />
+                    </Button>
+                  </a>
+                </div>
               </div>
-            </div>
 
-            {/* Navigation Dots */}
-            <div className="flex justify-center gap-2 mt-8">
-              {publications.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentIndex 
-                      ? 'bg-primary w-6' 
-                      : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
+              {/* Content */}
+              <div className="p-6 flex-1 flex flex-col">
+                <h3 className="text-lg font-semibold text-foreground font-display">{publication.title}</h3>
+                <p className="text-secondary text-sm font-medium mt-1">{publication.authors}</p>
+                <p className="text-muted-foreground text-xs mt-1">{publication.venue}</p>
+                <p className="text-sm text-muted-foreground my-4">{publication.abstract}</p>
+                <div className="flex flex-wrap gap-2">
+                  {publication.tags.map((tag) => (
+                    <span key={tag} className="tech-tag">{tag}</span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </ScrollReveal>
