@@ -1,4 +1,4 @@
-import { GraduationCap, Brain, Code, Stethoscope, Heart, MessageSquare, Eye, Lightbulb } from "lucide-react";
+import { GraduationCap, Brain, Code, Stethoscope, Heart, Eye, Lightbulb } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 
 const infoCards = [
@@ -8,12 +8,10 @@ const infoCards = [
 ];
 
 const researchAreas = [
-  { icon: Stethoscope, title: "Alzheimer's & Medical AI", color: "from-red-500/20 to-red-600/20" },
-  { icon: Brain, title: "Deep Learning", color: "from-purple-500/20 to-purple-600/20" },
+  { icon: Stethoscope, title: "Medical AI", color: "from-red-500/20 to-red-600/20" },
   { icon: Eye, title: "Computer Vision", color: "from-blue-500/20 to-blue-600/20" },
-  { icon: MessageSquare, title: "NLP for Low-Resource Languages", color: "from-green-500/20 to-green-600/20" },
-  { icon: Heart, title: "Depression Detection AI", color: "from-pink-500/20 to-pink-600/20" },
-  { icon: Lightbulb, title: "Explainable AI (XAI)", color: "from-yellow-500/20 to-yellow-600/20" },
+  { icon: Lightbulb, title: "Explainable AI", color: "from-yellow-500/20 to-yellow-600/20" },
+  { icon: Heart, title: "Mental Well-Being", color: "from-pink-500/20 to-pink-600/20" },
 ];
 
 const AboutSection = () => {
@@ -77,7 +75,7 @@ const AboutSection = () => {
               <span className="text-foreground">Research</span>{" "}
               <span className="bg-gradient-to-r from-primary via-cyan-400 to-secondary bg-clip-text text-transparent">Interests</span>
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto">
               {researchAreas.map((area, index) => (
                 <div 
                   key={index}
