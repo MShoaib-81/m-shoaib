@@ -75,7 +75,7 @@ const AboutSection = () => {
               <span className="text-foreground">Research</span>{" "}
               <span className="bg-gradient-to-r from-primary via-cyan-400 to-secondary bg-clip-text text-transparent">Interests</span>
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto">
               {researchAreas.map((area, index) => (
                 <div 
                   key={index}
