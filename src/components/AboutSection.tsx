@@ -8,12 +8,10 @@ const infoCards = [
 ];
 
 const researchAreas = [
-  { icon: Stethoscope, title: "Alzheimer's & Medical AI", color: "from-red-500/20 to-red-600/20" },
-  { icon: Brain, title: "Deep Learning", color: "from-purple-500/20 to-purple-600/20" },
+  { icon: Stethoscope, title: "Medical AI", color: "from-red-500/20 to-red-600/20" },
   { icon: Eye, title: "Computer Vision", color: "from-blue-500/20 to-blue-600/20" },
-  { icon: MessageSquare, title: "NLP for Low-Resource Languages", color: "from-green-500/20 to-green-600/20" },
-  { icon: Heart, title: "Depression Detection AI", color: "from-pink-500/20 to-pink-600/20" },
-  { icon: Lightbulb, title: "Explainable AI (XAI)", color: "from-yellow-500/20 to-yellow-600/20" },
+  { icon: Lightbulb, title: "Explainable AI", color: "from-yellow-500/20 to-yellow-600/20" },
+  { icon: Heart, title: "Mental Well-Being", color: "from-pink-500/20 to-pink-600/20" },
 ];
 
 const AboutSection = () => {
