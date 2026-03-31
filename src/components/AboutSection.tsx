@@ -1,4 +1,4 @@
-import { GraduationCap, Brain, Code, Stethoscope, Heart, MessageSquare, Eye, Lightbulb } from "lucide-react";
+import { GraduationCap, Brain, Code, Stethoscope, Heart, Eye, Lightbulb } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 
 const infoCards = [
