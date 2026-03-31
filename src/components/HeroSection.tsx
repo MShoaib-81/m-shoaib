@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Download, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import profilePhoto from "@/assets/profile-photo.png";
-const roles = ["Healthcare AI Researcher", "Explainable AI Advocate", "NLP for Low-Resource Languages", "Computer Vision & Medical Imaging"];
+const roles = ["Healthcare AI Researcher", "Explainable AI Advocate", "NLP for Low-Resource Languages", "Computer Vision & Deep Learning"];
 const HeroSection = () => {
   const [isDownloading, setIsDownloading] = useState(false);
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
