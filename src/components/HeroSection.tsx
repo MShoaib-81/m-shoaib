@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Download, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import profilePhoto from "@/assets/profile-photo.png";
-const roles = ["Healthcare AI Researcher", "Explainable AI Advocate", "NLP for Low-Resource Languages", "Computer Vision & Medical Imaging"];
+const roles = ["Healthcare AI Researcher", "Explainable AI Advocate", "NLP for Low-Resource Languages", "Computer Vision & Deep Learning"];
 const HeroSection = () => {
   const [isDownloading, setIsDownloading] = useState(false);
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
@@ -87,7 +87,7 @@ const HeroSection = () => {
               
               {/* Bio */}
               <p className="text-lg text-muted-foreground leading-relaxed max-w-xl pt-2">
-                Building trustworthy AI systems for healthcare, mental well-being, and underserved languages — where research meets real-world impact.
+                AI undergraduate & researcher building explainable, human-centered AI for healthcare, mental well-being, and low-resource languages — from depression detection to transformer interpretability for Urdu NLP.
               </p>
               
               {/* CTA Buttons */}
