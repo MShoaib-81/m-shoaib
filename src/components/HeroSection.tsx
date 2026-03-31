@@ -87,7 +87,7 @@ const HeroSection = () => {
               
               {/* Bio */}
               <p className="text-lg text-muted-foreground leading-relaxed max-w-xl pt-2">
-                Building trustworthy AI systems for healthcare, mental well-being, and underserved languages — where research meets real-world impact.
+                AI undergraduate & researcher building explainable, human-centered AI for healthcare, mental well-being, and low-resource languages — from depression detection to transformer interpretability for Urdu NLP.
               </p>
               
               {/* CTA Buttons */}
