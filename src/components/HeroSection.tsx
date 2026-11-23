@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Download, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
-import profilePhoto from "@/assets/profile-photo.png";
+import profilePhoto from "@/assets/profile-display.jpg.asset.json";
 const roles = ["Healthcare AI Researcher", "Explainable AI Advocate", "NLP for Low-Resource Languages", "Computer Vision & Deep Learning"];
 const HeroSection = () => {
   const [isDownloading, setIsDownloading] = useState(false);
@@ -114,7 +114,7 @@ const HeroSection = () => {
               <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full p-1 transition-transform duration-500 ease-out group-hover:scale-105" style={{
               background: 'hsl(220 20% 4%)'
             }}>
-                <img src={profilePhoto} alt="Muhammad Shoaib - AI/ML Research Student" className="w-full h-full object-cover object-top rounded-full" />
+                <img src={import.meta.env.DEV ? `https://m-shoaib.lovable.app${profilePhoto.url}` : profilePhoto.url} alt="Muhammad Shoaib - AI/ML Research Student" className="w-full h-full object-cover object-top rounded-full" />
               </div>
             </div>
           </div>
